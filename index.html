@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Vértice · Dashboard Lanzamiento Mayo</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:#0A0A0A;color:#fff;min-height:100vh;padding-bottom:40px;}
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:#141414}::-webkit-scrollbar-thumb{background:#2D6A4F;border-radius:2px}
+.header{background:#0e0e0e;border-bottom:1px solid #262626;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.logo-wrap{display:flex;align-items:center;gap:10px;}
+.brand-name{font-size:13px;font-weight:800;letter-spacing:0.14em;}
+.brand-sub{font-size:9px;color:#2D6A4F;letter-spacing:0.16em;text-transform:uppercase;margin-top:1px;}
+.header-right{text-align:right;font-size:11px;color:#9CA3AF;}
+.header-right .upd{color:#2D6A4F;font-weight:600;margin-top:2px;}
+.container{max-width:1180px;margin:0 auto;padding:20px 20px 0;}
+.filter-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:16px;}
+.filter-label{font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;margin-right:4px;}
+.db{background:none;border:1px solid #262626;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;padding:6px 13px;border-radius:20px;transition:all 0.2s;color:#9CA3AF;}
+.db:hover{border-color:#2D6A4F;color:#fff;}.db.on{background:#2D6A4F;border-color:#2D6A4F;color:#fff;}
+.db.today{border-color:#4ade80;color:#4ade80;}.db.today.on{background:#4ade80;color:#0A0A0A;}
+.kpi-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:18px;}
+.kcard{background:#141414;border:1px solid #262626;border-radius:12px;padding:16px 18px;position:relative;overflow:hidden;}
+.kcard.accent::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,#2D6A4F,transparent);}
+.kcard-label{font-size:10px;letter-spacing:0.12em;color:#9CA3AF;text-transform:uppercase;margin-bottom:6px;font-weight:600;}
+.kcard-value{font-size:22px;font-weight:800;line-height:1;margin-bottom:3px;}
+.kcard.accent .kcard-value{color:#4ade80;}.kcard:not(.accent) .kcard-value{color:#fff;}
+.kcard-sub{font-size:11px;color:#9CA3AF;margin-top:4px;}
+.tabs{display:flex;border-bottom:1px solid #262626;margin-bottom:16px;}
+.tb{background:none;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:10px 16px 12px;color:#9CA3AF;border-bottom:2px solid transparent;transition:all 0.2s;}
+.tb.on{color:#fff;border-bottom:2px solid #2D6A4F;}
+.panel{display:none;}.panel.on{display:block;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.span2{grid-column:1/-1;}
+.grid-geo{display:grid;grid-template-columns:260px 1fr;gap:12px;}
+.card{background:#141414;border:1px solid #262626;border-radius:12px;padding:16px;}
+.card-title{font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;margin-bottom:2px;}
+.card-sub{font-size:10px;color:#2D6A4F;margin-bottom:12px;}
+.chart-wrap{position:relative;width:100%;}
+.mini-grid{display:flex;gap:9px;flex-wrap:wrap;}
+.mini-card{flex:1 1 150px;background:#1C1C1C;border:1px solid #262626;border-radius:8px;padding:11px 13px;}
+.mini-name{font-size:10px;color:#9CA3AF;font-weight:600;margin-bottom:5px;}
+.mini-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px;}
+.mini-leads{font-size:16px;font-weight:800;}
+.mini-bar-bg{background:#262626;border-radius:3px;height:3px;overflow:hidden;}
+.mini-bar-fill{height:100%;background:linear-gradient(90deg,#1A4731,#2D6A4F);}
+.mini-foot{font-size:10px;color:#9CA3AF;margin-top:4px;}
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+th{padding:10px 13px;text-align:left;color:#9CA3AF;font-weight:600;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;background:#111;}
+tr.dr{border-top:1px solid #262626;transition:background 0.15s;}tr.dr:hover{background:#1c1c1c;}
+td{padding:12px 13px;}
+tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13px;}
+.chip{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;}
+.g1{background:#1a3a28;color:#4ade80;}.g2{background:#1a3220;color:#86efac;}.g3{background:#2a2010;color:#fbbf24;}.g4{background:#2a1212;color:#f87171;}
+.rank-list{display:flex;flex-direction:column;gap:8px;}
+.rcard{border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;border:1px solid #262626;background:#141414;}
+.rcard.first{background:#0f1a13;border-color:#2D6A4F;}
+.rnum{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;background:#262626;}
+.rnum.r1{background:#2D6A4F;}.rnum.r2{background:#1A4731;}
+.rinfo{flex:1;min-width:0;}.rname{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rmeta{font-size:10px;color:#9CA3AF;margin-top:2px;}
+.rcpr{text-align:right;flex-shrink:0;}.rcpr .val{font-size:15px;font-weight:800;}.rcpr .lbl{font-size:9px;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.08em;}
+.crow{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #262626;}
+.cflag{font-size:16px;}.cinfo{flex:1;}.chdr{display:flex;justify-content:space-between;margin-bottom:3px;}
+.cname{font-size:12px;font-weight:600;}.cleads{font-size:12px;font-weight:700;}
+.cbar-bg{background:#262626;border-radius:3px;height:3px;overflow:hidden;}.cbar{height:100%;}
+.cpct{font-size:11px;color:#9CA3AF;min-width:36px;text-align:right;}
+.gleg{display:flex;flex-direction:column;gap:8px;margin-top:6px;}
+.grow{display:flex;align-items:center;gap:9px;}.gdot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+.ginfo{flex:1;}.ghdr{display:flex;justify-content:space-between;}
+.gname{font-size:12px;color:#E5E7EB;}.gpct{font-size:12px;font-weight:700;}.gcnt{font-size:11px;color:#9CA3AF;}
+.age-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+.achip{background:#1C1C1C;border:1px solid #262626;border-radius:8px;padding:7px 11px;flex:1 1 60px;}
+.achip .ar{font-size:11px;font-weight:800;}.achip .at{font-size:11px;color:#2D6A4F;font-weight:700;}.achip .ap{font-size:10px;color:#9CA3AF;}
+.aleg{display:flex;gap:14px;margin-bottom:10px;}
+.aleg span{display:flex;align-items:center;gap:5px;font-size:11px;color:#9CA3AF;}
+.dot{width:10px;height:10px;border-radius:2px;display:inline-block;}
+.warn{background:#1a1a0d;border:1px solid #3a3910;border-radius:10px;padding:9px 15px;font-size:12px;color:#fbbf24;margin-bottom:12px;}
+.warn.hidden{display:none;}
+.footer{margin-top:18px;display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #262626;font-size:10px;color:#9CA3AF;}
+.footer .green{color:#2D6A4F;}.hidden{display:none;}
+@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(4,1fr);}.grid2{grid-template-columns:1fr;}.grid-geo{grid-template-columns:1fr;}.span2{grid-column:auto;}}
+@media(max-width:600px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo-wrap">
+    <svg width="32" height="36" viewBox="0 0 100 110" fill="none">
+      <polygon points="8,12 18,12 52,88 42,88" fill="white"/>
+      <polygon points="42,88 52,88 94,8 86,8" fill="#2D6A4F"/>
+    </svg>
+    <div>
+      <div class="brand-name">VÉRTICE</div>
+      <div class="brand-sub">TRÁFICO · ESTRATEGIA · COMUNICACIÓN</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div>LANZAMIENTO MAYO · 6 campañas activas</div>
+    <div class="upd" id="upd-time">—</div>
+  </div>
+</div>
+<div class="container">
+  <div class="filter-row">
+    <span class="filter-label">PERÍODO</span>
+    <button class="db on"    data-day="all">TODO EL PERÍODO</button>
+    <button class="db"       data-day="0">9 May</button>
+    <button class="db"       data-day="1">10 May</button>
+    <button class="db"       data-day="2">11 May</button>
+    <button class="db"       data-day="3">12 May</button>
+    <button class="db"       data-day="4">13 May</button>
+    <button class="db"       data-day="5">14 May</button>
+    <button class="db today" data-day="6">15 May ⚡</button>
+  </div>
+  <div class="kpi-grid">
+    <div class="kcard accent"><div class="kcard-label">Gasto</div><div class="kcard-value" id="k-spent">—</div><div class="kcard-sub">USD</div></div>
+    <div class="kcard"><div class="kcard-label">Leads</div><div class="kcard-value" id="k-leads">—</div><div class="kcard-sub">Clientes pot.</div></div>
+    <div class="kcard accent"><div class="kcard-label">CPR</div><div class="kcard-value" id="k-cpr">—</div><div class="kcard-sub">Costo/lead</div></div>
+    <div class="kcard"><div class="kcard-label">Impresiones</div><div class="kcard-value" id="k-imp">—</div></div>
+    <div class="kcard"><div class="kcard-label">Alcance</div><div class="kcard-value" id="k-reach">—</div></div>
+    <div class="kcard accent"><div class="kcard-label">Leads Hoy</div><div class="kcard-value">2.528</div><div class="kcard-sub">15 Mayo parcial</div></div>
+    <div class="kcard"><div class="kcard-label">CPR Hoy</div><div class="kcard-value">$0.834</div><div class="kcard-sub">15 Mayo</div></div>
+  </div>
+  <div class="tabs">
+    <button class="tb on" data-tab="overview">Resumen</button>
+    <button class="tb" data-tab="campaigns">Campañas</button>
+    <button class="tb" data-tab="ranking">Ranking</button>
+    <button class="tb" data-tab="audience">Audiencia</button>
+  </div>
+  <div class="panel on" id="panel-overview">
+    <div class="grid2">
+      <div class="card"><div class="card-title">Evolución CPR</div><div class="card-sub">Costo por lead diario · 9–15 Mayo</div><div class="chart-wrap" style="height:180px"><canvas id="chart-cpr"></canvas></div></div>
+      <div class="card"><div class="card-title">Leads Diarios</div><div class="card-sub">Conversiones por día</div><div class="chart-wrap" style="height:180px"><canvas id="chart-leads-daily"></canvas></div></div>
+      <div class="card span2"><div class="card-title" id="dist-title">Distribución · Todo el período</div><div class="mini-grid" id="mini-camps"></div></div>
+    </div>
+  </div>
+  <div class="panel" id="panel-campaigns">
+    <div style="background:#141414;border:1px solid #262626;border-radius:12px;overflow:hidden;">
+      <div style="padding:12px 16px;border-bottom:1px solid #262626;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;" id="camp-header">Campañas · 9–15 Mayo 2026</span>
+        <span style="font-size:11px;color:#fbbf24;" id="camp-note" class="hidden">Métricas completas en "Todo el período"</span>
+      </div>
+      <div class="tbl-wrap"><table><thead id="camp-thead"></thead><tbody id="camp-tbody"></tbody></table></div>
+    </div>
+  </div>
+  <div class="panel" id="panel-ranking">
+    <div class="grid2">
+      <div class="card"><div class="card-title">Ranking CPR</div><div class="card-sub" id="rank-sub">Todo el período · menor es mejor</div><div class="chart-wrap" style="height:300px"><canvas id="chart-ranking"></canvas></div></div>
+      <div>
+        <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;padding-bottom:8px;border-bottom:1px solid #262626;margin-bottom:8px;" id="rank-title">Orden · Todo el período</div>
+        <div class="rank-list" id="rank-list"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="panel-audience">
+    <div class="warn hidden" id="aud-warn">⚠️ Los datos de audiencia corresponden siempre al período completo.</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="card">
+        <div class="card-title">Países · Origen de Leads</div>
+        <div class="card-sub">Leads con país identificado · 9–15 Mayo</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="chart-wrap" style="height:210px"><canvas id="chart-countries"></canvas></div>
+          <div id="country-list"></div>
+        </div>
+      </div>
+      <div class="grid-geo">
+        <div class="card"><div class="card-title">Género</div><div class="card-sub">Distribución de leads</div><div class="chart-wrap" style="height:145px"><canvas id="chart-gender"></canvas></div><div class="gleg" id="gender-legend"></div></div>
+        <div class="card">
+          <div class="card-title">Rango de Edades</div><div class="card-sub">Leads por edad y género</div>
+          <div class="aleg"><span><span class="dot" style="background:#2D6A4F"></span>Masculino</span><span><span class="dot" style="background:#7c3aed"></span>Femenino</span></div>
+          <div class="chart-wrap" style="height:180px"><canvas id="chart-ages"></canvas></div>
+          <div class="age-chips" id="age-chips"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Cuenta: <span class="green">Solutions Engineering Team [3]</span> · ID 313462381636210</span>
+    <span>Vértice · <span id="footer-time">—</span></span>
+  </div>
+</div>
+<script>
+var ALL_CAMPS=[
+  {name:"Test ABO [WW]",        spent:5053.17,leads:6776,cpr:0.746,imp:705700,reach:319542},
+  {name:"Escala CBO [ARG]",     spent:1572.59,leads:1933,cpr:0.814,imp:326960,reach:231533},
+  {name:"Escala CBO [WW]",      spent:1590.38,leads:1880,cpr:0.846,imp:320215,reach:258792},
+  {name:"Escala CBO 2 [ARG]",   spent:2144.21,leads:2322,cpr:0.923,imp:506495,reach:394445},
+  {name:"Escala CBO [WW] Copia",spent:767.91, leads:891, cpr:0.862,imp:154382,reach:136547},
+  {name:"Escala2 CBO [WW]",     spent:319.12, leads:376, cpr:0.849,imp:50223, reach:43758},
+];
+var TOT={spent:11447.38,leads:14178,cpr:0.807,imp:2063975,reach:1384617};
+
+var DAILY_LABELS=["9 May","10 May","11 May","12 May","13 May","14 May","15 May ⚡"];
+var DAILY_SPEND= [36.60,  182.56,  220.03,  1908.90, 3876.56, 3114.81, 2107.92];
+var DAILY_LEADS= [17,     157,     204,     2361,    4991,    3920,    2528];
+var DAILY_CPR=   [2.153,  1.163,   1.079,   0.809,   0.777,   0.794,   0.834];
+var DAILY_TODAY= [false,  false,   false,   false,   false,   false,   true];
+
+var DAY_CAMPS=[
+  [{name:"Test ABO [WW]",spent:29.23,leads:14,cpr:2.088},{name:"Escala CBO [ARG]",spent:7.37,leads:3,cpr:2.457}],
+  [{name:"Test ABO [WW]",spent:138.03,leads:99,cpr:1.394},{name:"Escala CBO [ARG]",spent:44.53,leads:58,cpr:0.768}],
+  [{name:"Test ABO [WW]",spent:156.84,leads:144,cpr:1.089},{name:"Escala CBO [ARG]",spent:63.19,leads:60,cpr:1.053}],
+  [{name:"Test ABO [WW]",spent:1397.05,leads:1601,cpr:0.873},{name:"Escala CBO [ARG]",spent:192.73,leads:320,cpr:0.602},{name:"Escala CBO [WW]",spent:220.04,leads:354,cpr:0.622},{name:"Escala2 CBO [WW]",spent:99.08,leads:86,cpr:1.152}],
+  [{name:"Test ABO [WW]",spent:1402.07,leads:2036,cpr:0.689},{name:"Escala CBO [ARG]",spent:441.37,leads:571,cpr:0.773},{name:"Escala CBO [WW]",spent:549.04,leads:679,cpr:0.809},{name:"Escala2 CBO [WW]",spent:76.01,leads:104,cpr:0.731},{name:"Escala CBO 2 [ARG]",spent:845.93,leads:954,cpr:0.887},{name:"Escala CBO [WW] Copia",spent:562.14,leads:647,cpr:0.869}],
+  [{name:"Test ABO [WW]",spent:1194.49,leads:1810,cpr:0.660},{name:"Escala CBO [ARG]",spent:457.72,leads:495,cpr:0.924},{name:"Escala CBO [WW]",spent:454.22,leads:464,cpr:0.979},{name:"Escala2 CBO [WW]",spent:82.91,leads:105,cpr:0.790},{name:"Escala CBO 2 [ARG]",spent:719.70,leads:802,cpr:0.897},{name:"Escala CBO [WW] Copia",spent:205.77,leads:244,cpr:0.843}],
+  [{name:"Test ABO [WW]",spent:735.46,leads:1072,cpr:0.686},{name:"Escala CBO [ARG]",spent:365.68,leads:426,cpr:0.858},{name:"Escala CBO [WW]",spent:367.08,leads:383,cpr:0.958},{name:"Escala2 CBO [WW]",spent:61.12,leads:81,cpr:0.755},{name:"Escala CBO 2 [ARG]",spent:578.58,leads:566,cpr:1.022}],
+];
+
+var COUNTRIES=[
+  {name:"Argentina",leads:2503,pct:50.4,flag:"🇦🇷",color:"#4ade80"},
+  {name:"Ecuador",  leads:540, pct:10.9,flag:"🇪🇨",color:"#2D6A4F"},
+  {name:"Colombia", leads:502, pct:10.1,flag:"🇨🇴",color:"#2D6A4F"},
+  {name:"Perú",     leads:447, pct:9.0, flag:"🇵🇪",color:"#2D6A4F"},
+  {name:"México",   leads:318, pct:6.4, flag:"🇲🇽",color:"#1A4731"},
+  {name:"Uruguay",  leads:317, pct:6.4, flag:"🇺🇾",color:"#1A4731"},
+  {name:"Chile",    leads:259, pct:5.2, flag:"🇨🇱",color:"#1A4731"},
+  {name:"EE.UU.",   leads:84,  pct:1.7, flag:"🇺🇸",color:"#374151"},
+];
+var AGES=[{range:"18-24",male:381,female:68,total:449},{range:"25-34",male:915,female:281,total:1196},{range:"35-44",male:1015,female:322,total:1337},{range:"45-54",male:852,female:278,total:1130},{range:"55-64",male:430,female:146,total:576},{range:"65+",male:169,female:76,total:245}];
+var GENDER=[{name:"Masculino",value:3762},{name:"Femenino",value:1171}];
+var GCOLS=["#2D6A4F","#7c3aed"];
+var currentDay="all";var charts={};
+function chipClass(v){return v<0.70?"g1":v<0.90?"g2":v<1.10?"g3":"g4";}
+function chipHtml(v){return '<span class="chip '+chipClass(v)+'">$'+v.toFixed(3)+'</span>';}
+function rankColor(i){return i===0?"#4ade80":i===1?"#3d8c6a":i<4?"#2D6A4F":"#f97316";}
+function cprTextColor(i){return i===0?"#4ade80":i<3?"#3d8c6a":i<5?"#E5E7EB":"#f97316";}
+function nowStr(){var d=new Date();return d.toLocaleDateString("es-AR",{day:"2-digit",month:"short"})+" · "+d.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"});}
+function fmtNum(n){return Number(n).toLocaleString("es-AR");}
+var baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:"#1C1C1C",borderColor:"#2D6A4F",borderWidth:1,titleColor:"#9CA3AF",bodyColor:"#fff",padding:10}},scales:{x:{grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10}},border:{display:false}},y:{grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10}},border:{display:false}}}};
+function cloneOpts(){return JSON.parse(JSON.stringify(baseOpts));}
+function updateKpis(){
+  var isAll=currentDay==="all";var i=parseInt(currentDay);
+  document.getElementById("k-spent").textContent=isAll?"$"+TOT.spent.toLocaleString("en-US",{minimumFractionDigits:2}):"$"+DAILY_SPEND[i].toFixed(2);
+  document.getElementById("k-leads").textContent=isAll?fmtNum(TOT.leads):fmtNum(DAILY_LEADS[i]);
+  document.getElementById("k-cpr").textContent=isAll?"$"+TOT.cpr.toFixed(3):"$"+DAILY_CPR[i].toFixed(3);
+  document.getElementById("k-imp").textContent=isAll?fmtNum(TOT.imp):"—";
+  document.getElementById("k-reach").textContent=isAll?fmtNum(TOT.reach):"—";
+}
+function buildCprChart(){
+  if(charts.cpr)charts.cpr.destroy();
+  var opts=cloneOpts();opts.plugins.tooltip.callbacks={label:function(c){return "CPR: $"+c.parsed.y.toFixed(3);}};
+  opts.scales.y.ticks.callback=function(v){return "$"+v.toFixed(2);};
+  charts.cpr=new Chart(document.getElementById("chart-cpr"),{type:"line",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_CPR,label:"CPR $",borderColor:"#2D6A4F",backgroundColor:"rgba(45,106,79,0.1)",borderWidth:2.5,tension:0.3,fill:true,pointRadius:DAILY_TODAY.map(function(_,i){return DAILY_TODAY[i]?7:5;}),pointBackgroundColor:DAILY_LABELS.map(function(_,i){return DAILY_TODAY[i]?"#4ade80":(currentDay!=="all"&&i===parseInt(currentDay))?"#4ade80":"#2D6A4F";}),pointBorderColor:"#0A0A0A",pointBorderWidth:2}]},options:opts});
+}
+function buildLeadsChart(){
+  if(charts.leads)charts.leads.destroy();
+  charts.leads=new Chart(document.getElementById("chart-leads-daily"),{type:"bar",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_LEADS,label:"Leads",backgroundColor:DAILY_LABELS.map(function(_,i){return DAILY_TODAY[i]?"rgba(74,222,128,0.8)":(currentDay!=="all"&&i===parseInt(currentDay))?"#4ade80":"rgba(45,106,79,0.8)";}),borderRadius:4}]},options:cloneOpts()});
+}
+function buildRankingChart(sorted){
+  if(charts.ranking)charts.ranking.destroy();
+  var opts=cloneOpts();opts.indexAxis="y";opts.plugins.tooltip.callbacks={label:function(c){return "CPR: $"+c.parsed.x.toFixed(3);}};
+  opts.scales.x={min:0,max:1.1,grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10},callback:function(v){return "$"+v.toFixed(2);}},border:{display:false}};
+  opts.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:10}},border:{display:false}};
+  charts.ranking=new Chart(document.getElementById("chart-ranking"),{type:"bar",data:{labels:sorted.map(function(c){return c.name;}),datasets:[{data:sorted.map(function(c){return c.cpr;}),label:"CPR $",backgroundColor:sorted.map(function(_,i){return rankColor(i);}),borderRadius:4}]},options:opts});
+}
+function buildCountriesChart(){
+  if(charts.countries)charts.countries.destroy();
+  var opts=cloneOpts();opts.indexAxis="y";opts.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:11}},border:{display:false}};
+  charts.countries=new Chart(document.getElementById("chart-countries"),{type:"bar",data:{labels:COUNTRIES.map(function(c){return c.name;}),datasets:[{data:COUNTRIES.map(function(c){return c.leads;}),label:"Leads",backgroundColor:COUNTRIES.map(function(c){return c.color;}),borderRadius:4}]},options:opts});
+}
+function buildGenderChart(){
+  if(charts.gender)charts.gender.destroy();
+  charts.gender=new Chart(document.getElementById("chart-gender"),{type:"doughnut",data:{labels:["Masculino","Femenino"],datasets:[{data:[3762,1171],backgroundColor:GCOLS,borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:"#1C1C1C",borderColor:"#2D6A4F",borderWidth:1,bodyColor:"#fff",padding:10}},cutout:"62%"}});
+  var gl=document.getElementById("gender-legend");gl.innerHTML="";
+  [{name:"Masculino",pct:"76.3%",val:3762,col:"#2D6A4F"},{name:"Femenino",pct:"23.7%",val:1171,col:"#7c3aed"}].forEach(function(g){gl.innerHTML+='<div class="grow"><div class="gdot" style="background:'+g.col+'"></div><div class="ginfo"><div class="ghdr"><span class="gname">'+g.name+'</span><span class="gpct" style="color:'+g.col+'">'+g.pct+'</span></div><div class="gcnt">'+g.val.toLocaleString("es-AR")+' leads</div></div></div>';});
+}
+function buildAgesChart(){
+  if(charts.ages)charts.ages.destroy();
+  var opts=cloneOpts();opts.plugins.legend={display:false};
+  charts.ages=new Chart(document.getElementById("chart-ages"),{type:"bar",data:{labels:AGES.map(function(a){return a.range;}),datasets:[{label:"Masculino",data:AGES.map(function(a){return a.male;}),backgroundColor:"#2D6A4F",borderRadius:3,maxBarThickness:22},{label:"Femenino",data:AGES.map(function(a){return a.female;}),backgroundColor:"#7c3aed",borderRadius:3,maxBarThickness:22}]},options:opts});
+  var ac=document.getElementById("age-chips");ac.innerHTML="";
+  AGES.forEach(function(a){ac.innerHTML+='<div class="achip"><div class="ar">'+a.range+'</div><div class="at">'+fmtNum(a.total)+'</div><div class="ap">'+Math.round(a.total/4933*100)+'%</div></div>';});
+}
+function updateMiniCards(){
+  var isAll=currentDay==="all";var idx=parseInt(currentDay);
+  var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);
+  var totalLeads=isAll?TOT.leads:DAILY_LEADS[idx];
+  document.getElementById("dist-title").textContent="Distribución · "+(isAll?"Todo el período":DAILY_LABELS[idx]);
+  var mc=document.getElementById("mini-camps");mc.innerHTML="";
+  if(!camps.length){mc.innerHTML='<span style="color:#9CA3AF;font-size:12px">Sin campañas activas ese día</span>';return;}
+  camps.forEach(function(c){var pct=((c.leads/totalLeads)*100).toFixed(1);mc.innerHTML+='<div class="mini-card"><div class="mini-name">'+c.name+'</div><div class="mini-row"><span class="mini-leads">'+fmtNum(c.leads)+'</span>'+chipHtml(c.cpr)+'</div><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:'+pct+'%"></div></div><div class="mini-foot">'+pct+'% · $'+c.spent.toFixed(0)+' USD</div></div>';});
+}
+function updateCampsTable(){
+  var isAll=currentDay==="all";var idx=parseInt(currentDay);
+  var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);
+  document.getElementById("camp-header").textContent="Campañas · "+(isAll?"9–15 Mayo 2026":DAILY_LABELS[idx]);
+  document.getElementById("camp-note").className=isAll?"hidden":"";
+  var cols=["Campaña","Gasto","Leads","CPR"];if(isAll)cols=cols.concat(["Impresiones","Alcance","Estado"]);
+  document.getElementById("camp-thead").innerHTML="<tr>"+cols.map(function(h){return "<th>"+h+"</th>";}).join("")+"</tr>";
+  var tbody=document.getElementById("camp-tbody");
+  if(!camps.length){tbody.innerHTML='<tr><td colspan="4" style="padding:24px;color:#9CA3AF;text-align:center">Sin datos para este día</td></tr>';return;}
+  var rows="";
+  camps.forEach(function(c){rows+='<tr class="dr"><td style="color:#fff;font-weight:600">'+c.name+'</td><td style="font-family:monospace;color:#E5E7EB">$'+c.spent.toFixed(2)+'</td><td style="font-weight:700">'+fmtNum(c.leads)+'</td><td>'+chipHtml(c.cpr)+'</td>'+(isAll?'<td style="color:#9CA3AF">'+fmtNum(c.imp)+'</td><td style="color:#9CA3AF">'+fmtNum(c.reach)+'</td><td style="color:#4ade80;font-size:11px">● Activa</td>':'')+' </tr>';});
+  var ts=camps.reduce(function(a,c){return{spent:a.spent+c.spent,leads:a.leads+c.leads};},{spent:0,leads:0});
+  var tcpr=ts.leads>0?ts.spent/ts.leads:0;
+  rows+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase;letter-spacing:0.06em">TOTAL</td><td style="font-weight:700;font-family:monospace">$'+ts.spent.toFixed(2)+'</td><td style="font-weight:800;font-size:13px">'+fmtNum(ts.leads)+'</td><td>'+chipHtml(tcpr)+'</td>'+(isAll?'<td style="font-weight:700">'+fmtNum(TOT.imp)+'</td><td style="font-weight:700">'+fmtNum(TOT.reach)+'</td><td></td>':'')+' </tr>';
+  tbody.innerHTML=rows;
+}
+function updateRanking(){
+  var isAll=currentDay==="all";var idx=parseInt(currentDay);
+  var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);
+  var label=isAll?"Todo el período":DAILY_LABELS[idx];
+  document.getElementById("rank-sub").textContent=label+" · menor es mejor";
+  document.getElementById("rank-title").textContent="Orden · "+label;
+  var sorted=camps.slice().sort(function(a,b){return a.cpr-b.cpr;});
+  if(!sorted.length){document.getElementById("rank-list").innerHTML='<span style="color:#9CA3AF;font-size:12px">Sin datos</span>';return;}
+  buildRankingChart(sorted);
+  var rl=document.getElementById("rank-list");rl.innerHTML="";
+  sorted.forEach(function(c,i){rl.innerHTML+='<div class="rcard'+(i===0?" first":"")+'"><div class="rnum '+(i===0?"r1":i===1?"r2":"")+'">'+( i+1)+'</div><div class="rinfo"><div class="rname">'+c.name+'</div><div class="rmeta">'+fmtNum(c.leads)+' leads · $'+c.spent.toFixed(0)+' USD</div></div><div class="rcpr"><div class="val" style="color:'+cprTextColor(i)+'">$'+c.cpr.toFixed(3)+'</div><div class="lbl">por lead</div></div></div>';});
+}
+function buildCountryList(){
+  var cl=document.getElementById("country-list");cl.innerHTML="";
+  COUNTRIES.forEach(function(c,i){cl.innerHTML+='<div class="crow"><span class="cflag">'+c.flag+'</span><div class="cinfo"><div class="chdr"><span class="cname">'+c.name+'</span><span class="cleads" style="color:'+(i===0?"#4ade80":"#E5E7EB")+'">'+fmtNum(c.leads)+'</span></div><div class="cbar-bg"><div class="cbar" style="width:'+c.pct+'%;background:'+(i===0?"#4ade80":i<3?"#2D6A4F":"#1A4731")+'"></div></div></div><span class="cpct">'+c.pct+'%</span></div>';});
+}
+function render(){updateKpis();updateMiniCards();buildCprChart();buildLeadsChart();updateCampsTable();updateRanking();}
+window.addEventListener("load",function(){
+  var t=nowStr();
+  document.getElementById("upd-time").textContent="Actualizado "+t;
+  document.getElementById("footer-time").textContent=t;
+  document.querySelectorAll(".tb").forEach(function(btn){btn.addEventListener("click",function(){document.querySelectorAll(".tb").forEach(function(b){b.classList.remove("on");});document.querySelectorAll(".panel").forEach(function(p){p.classList.remove("on");});btn.classList.add("on");var p=document.getElementById("panel-"+btn.dataset.tab);if(p)p.classList.add("on");});});
+  document.querySelectorAll(".db").forEach(function(btn){btn.addEventListener("click",function(){document.querySelectorAll(".db").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");currentDay=btn.dataset.day;document.getElementById("aud-warn").className=(currentDay==="all")?"warn hidden":"warn";render();});});
+  buildCountriesChart();buildCountryList();buildGenderChart();buildAgesChart();render();
+});
+</script>
+</body>
+</html>
