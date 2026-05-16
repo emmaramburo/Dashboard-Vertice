@@ -16,7 +16,7 @@ body{font-family:'Montserrat',sans-serif;background:#0A0A0A;color:#fff;min-heigh
 .brand-sub{font-size:9px;color:#2D6A4F;letter-spacing:0.16em;text-transform:uppercase;margin-top:1px;}
 .header-right{text-align:right;font-size:11px;color:#9CA3AF;}
 .header-right .upd{color:#2D6A4F;font-weight:600;margin-top:2px;}
-.container{max-width:1180px;margin:0 auto;padding:20px 20px 0;}
+.container{max-width:1200px;margin:0 auto;padding:20px 20px 0;}
 .filter-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:16px;}
 .filter-label{font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;margin-right:4px;}
 .db{background:none;border:1px solid #262626;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;padding:6px 13px;border-radius:20px;transition:all 0.2s;color:#9CA3AF;}
@@ -25,12 +25,13 @@ body{font-family:'Montserrat',sans-serif;background:#0A0A0A;color:#fff;min-heigh
 .kpi-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:18px;}
 .kcard{background:#141414;border:1px solid #262626;border-radius:12px;padding:16px 18px;position:relative;overflow:hidden;}
 .kcard.accent::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,#2D6A4F,transparent);}
+.kcard.amber::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,#d97706,transparent);}
 .kcard-label{font-size:10px;letter-spacing:0.12em;color:#9CA3AF;text-transform:uppercase;margin-bottom:6px;font-weight:600;}
 .kcard-value{font-size:22px;font-weight:800;line-height:1;margin-bottom:3px;}
-.kcard.accent .kcard-value{color:#4ade80;}.kcard:not(.accent) .kcard-value{color:#fff;}
+.kcard.accent .kcard-value{color:#4ade80;}.kcard.amber .kcard-value{color:#fbbf24;}.kcard:not(.accent):not(.amber) .kcard-value{color:#fff;}
 .kcard-sub{font-size:11px;color:#9CA3AF;margin-top:4px;}
-.tabs{display:flex;border-bottom:1px solid #262626;margin-bottom:16px;}
-.tb{background:none;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:10px 16px 12px;color:#9CA3AF;border-bottom:2px solid transparent;transition:all 0.2s;}
+.tabs{display:flex;border-bottom:1px solid #262626;margin-bottom:16px;overflow-x:auto;}
+.tb{background:none;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:10px 16px 12px;color:#9CA3AF;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;}
 .tb.on{color:#fff;border-bottom:2px solid #2D6A4F;}
 .panel{display:none;}.panel.on{display:block;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.span2{grid-column:1/-1;}
@@ -38,6 +39,7 @@ body{font-family:'Montserrat',sans-serif;background:#0A0A0A;color:#fff;min-heigh
 .card{background:#141414;border:1px solid #262626;border-radius:12px;padding:16px;}
 .card-title{font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;margin-bottom:2px;}
 .card-sub{font-size:10px;color:#2D6A4F;margin-bottom:12px;}
+.card-sub.wa{color:#4ade80;}
 .chart-wrap{position:relative;width:100%;}
 .mini-grid{display:flex;gap:9px;flex-wrap:wrap;}
 .mini-card{flex:1 1 150px;background:#1C1C1C;border:1px solid #262626;border-radius:8px;padding:11px 13px;}
@@ -82,7 +84,23 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
 .warn.hidden{display:none;}
 .footer{margin-top:18px;display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #262626;font-size:10px;color:#9CA3AF;}
 .footer .green{color:#2D6A4F;}.hidden{display:none;}
-@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(4,1fr);}.grid2{grid-template-columns:1fr;}.grid-geo{grid-template-columns:1fr;}.span2{grid-column:auto;}}
+.wa-badge{display:inline-block;background:#1a3a1a;color:#4ade80;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:0.06em;margin-left:5px;}
+.funnel-step{display:flex;align-items:flex-start;gap:14px;background:#1C1C1C;border-radius:10px;padding:12px 16px;border-left:3px solid #262626;margin-bottom:6px;}
+.funnel-bar-wrap{width:100%;background:#262626;border-radius:4px;height:4px;margin-top:7px;overflow:hidden;}
+.funnel-bar{height:100%;border-radius:4px;}
+.cpr-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+.cpr-card{background:#1C1C1C;border-radius:12px;padding:20px;text-align:center;border:1px solid #262626;}
+.cpr-card.meta{border-color:#2D6A4F;}.cpr-card.crm{border-color:#d97706;}
+.cpr-card .platform{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;}
+.cpr-card.meta .platform{color:#2D6A4F;}.cpr-card.crm .platform{color:#d97706;}
+.cpr-card .bigval{font-size:34px;font-weight:800;line-height:1;}
+.cpr-card.meta .bigval{color:#4ade80;}.cpr-card.crm .bigval{color:#fbbf24;}
+.cpr-card .desc{font-size:11px;color:#9CA3AF;margin-top:8px;line-height:1.5;}
+.gstat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px;}
+.gstat{background:#1C1C1C;border:1px solid #262626;border-radius:10px;padding:12px;text-align:center;}
+.gstat .gv{font-size:22px;font-weight:800;color:#fff;}.gstat .gl{font-size:10px;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.06em;margin-top:3px;}
+.gstat.green .gv{color:#4ade80;}.gstat.red .gv{color:#f87171;}
+@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(4,1fr);}.grid2{grid-template-columns:1fr;}.grid-geo{grid-template-columns:1fr;}.span2{grid-column:auto;}.cpr-compare{grid-template-columns:1fr;}.gstat-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
 </style>
 </head>
@@ -93,16 +111,14 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
       <polygon points="8,12 18,12 52,88 42,88" fill="white"/>
       <polygon points="42,88 52,88 94,8 86,8" fill="#2D6A4F"/>
     </svg>
-    <div>
-      <div class="brand-name">VÉRTICE</div>
-      <div class="brand-sub">TRÁFICO · ESTRATEGIA · COMUNICACIÓN</div>
-    </div>
+    <div><div class="brand-name">VÉRTICE</div><div class="brand-sub">TRÁFICO · ESTRATEGIA · COMUNICACIÓN</div></div>
   </div>
   <div class="header-right">
     <div>LANZAMIENTO MAYO · 6 campañas activas</div>
     <div class="upd" id="upd-time">—</div>
   </div>
 </div>
+
 <div class="container">
   <div class="filter-row">
     <span class="filter-label">PERÍODO</span>
@@ -113,54 +129,148 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     <button class="db"       data-day="3">12 May</button>
     <button class="db"       data-day="4">13 May</button>
     <button class="db"       data-day="5">14 May</button>
-    <button class="db today" data-day="6">15 May ⚡</button>
+    <button class="db"       data-day="6">15 May</button>
+    <button class="db today" data-day="7">16 May ⚡</button>
   </div>
+
   <div class="kpi-grid">
     <div class="kcard accent"><div class="kcard-label">Gasto</div><div class="kcard-value" id="k-spent">—</div><div class="kcard-sub">USD</div></div>
-    <div class="kcard"><div class="kcard-label">Leads</div><div class="kcard-value" id="k-leads">—</div><div class="kcard-sub">Clientes pot.</div></div>
-    <div class="kcard accent"><div class="kcard-label">CPR</div><div class="kcard-value" id="k-cpr">—</div><div class="kcard-sub">Costo/lead</div></div>
-    <div class="kcard"><div class="kcard-label">Impresiones</div><div class="kcard-value" id="k-imp">—</div></div>
-    <div class="kcard"><div class="kcard-label">Alcance</div><div class="kcard-value" id="k-reach">—</div></div>
-    <div class="kcard accent"><div class="kcard-label">Leads Hoy</div><div class="kcard-value">2.528</div><div class="kcard-sub">15 Mayo parcial</div></div>
-    <div class="kcard"><div class="kcard-label">CPR Hoy</div><div class="kcard-value">$0.834</div><div class="kcard-sub">15 Mayo</div></div>
+    <div class="kcard"><div class="kcard-label">Leads Meta</div><div class="kcard-value" id="k-leads">—</div><div class="kcard-sub">Pixel</div></div>
+    <div class="kcard accent"><div class="kcard-label">CPR Meta</div><div class="kcard-value" id="k-cpr">—</div><div class="kcard-sub">Por lead</div></div>
+    <div class="kcard"><div class="kcard-label">Entraron WA</div><div class="kcard-value" id="k-entraron">—</div><div class="kcard-sub">Grupos WhatsApp</div></div>
+    <div class="kcard amber"><div class="kcard-label">CPR CRM</div><div class="kcard-value" id="k-cprcrm">—</div><div class="kcard-sub">Por persona en grupo</div></div>
+    <div class="kcard"><div class="kcard-label">Conv Lead→WA</div><div class="kcard-value" id="k-conv">—</div><div class="kcard-sub">% leads en grupo</div></div>
+    <div class="kcard"><div class="kcard-label">Retención WA</div><div class="kcard-value">89.1%</div><div class="kcard-sub">Activos en grupos</div></div>
   </div>
+
   <div class="tabs">
     <button class="tb on" data-tab="overview">Resumen</button>
     <button class="tb" data-tab="campaigns">Campañas</button>
     <button class="tb" data-tab="ranking">Ranking</button>
+    <button class="tb" data-tab="funnel">Embudo <span class="wa-badge">WA</span></button>
     <button class="tb" data-tab="audience">Audiencia</button>
   </div>
+
+  <!-- RESUMEN -->
   <div class="panel on" id="panel-overview">
     <div class="grid2">
-      <div class="card"><div class="card-title">Evolución CPR</div><div class="card-sub">Costo por lead diario · 9–15 Mayo</div><div class="chart-wrap" style="height:180px"><canvas id="chart-cpr"></canvas></div></div>
-      <div class="card"><div class="card-title">Leads Diarios</div><div class="card-sub">Conversiones por día</div><div class="chart-wrap" style="height:180px"><canvas id="chart-leads-daily"></canvas></div></div>
+      <div class="card"><div class="card-title">Evolución CPR</div><div class="card-sub">Costo por lead diario · 9–16 Mayo</div><div class="chart-wrap" style="height:180px"><canvas id="chart-cpr"></canvas></div></div>
+      <div class="card"><div class="card-title">Leads Diarios</div><div class="card-sub">Conversiones Meta por día</div><div class="chart-wrap" style="height:180px"><canvas id="chart-leads-daily"></canvas></div></div>
       <div class="card span2"><div class="card-title" id="dist-title">Distribución · Todo el período</div><div class="mini-grid" id="mini-camps"></div></div>
     </div>
   </div>
+
+  <!-- CAMPAÑAS -->
   <div class="panel" id="panel-campaigns">
     <div style="background:#141414;border:1px solid #262626;border-radius:12px;overflow:hidden;">
       <div style="padding:12px 16px;border-bottom:1px solid #262626;display:flex;justify-content:space-between;align-items:center;">
-        <span style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;" id="camp-header">Campañas · 9–15 Mayo 2026</span>
+        <span style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;" id="camp-header">Campañas · 9–16 Mayo 2026</span>
         <span style="font-size:11px;color:#fbbf24;" id="camp-note" class="hidden">Métricas completas en "Todo el período"</span>
       </div>
       <div class="tbl-wrap"><table><thead id="camp-thead"></thead><tbody id="camp-tbody"></tbody></table></div>
     </div>
   </div>
+
+  <!-- RANKING -->
   <div class="panel" id="panel-ranking">
     <div class="grid2">
-      <div class="card"><div class="card-title">Ranking CPR</div><div class="card-sub" id="rank-sub">Todo el período · menor es mejor</div><div class="chart-wrap" style="height:300px"><canvas id="chart-ranking"></canvas></div></div>
+      <div class="card"><div class="card-title">Ranking CPR</div><div class="card-sub" id="rank-sub">Todo el período</div><div class="chart-wrap" style="height:300px"><canvas id="chart-ranking"></canvas></div></div>
       <div>
         <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;padding-bottom:8px;border-bottom:1px solid #262626;margin-bottom:8px;" id="rank-title">Orden · Todo el período</div>
         <div class="rank-list" id="rank-list"></div>
       </div>
     </div>
   </div>
+
+  <!-- EMBUDO -->
+  <div class="panel" id="panel-funnel">
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="grid2">
+        <div class="card">
+          <div class="card-title">Embudo completo</div>
+          <div class="card-sub wa">Meta Ads → SendFlow → Grupos WhatsApp</div>
+          <div id="funnel-steps"></div>
+        </div>
+        <div class="card">
+          <div class="card-title">CPR Meta vs CPR CRM</div>
+          <div class="card-sub wa">Costo real por persona ingresada al grupo</div>
+          <div class="cpr-compare">
+            <div class="cpr-card meta">
+              <div class="platform">CPR Meta</div>
+              <div class="bigval" id="cpr-meta-big">—</div>
+              <div class="desc">Por lead registrado<br>vía pixel de conversión</div>
+            </div>
+            <div class="cpr-card crm">
+              <div class="platform">CPR CRM</div>
+              <div class="bigval" id="cpr-crm-big">—</div>
+              <div class="desc">Por persona que entró<br>efectivamente al grupo WA</div>
+              <div style="font-size:11px;font-weight:700;color:#f97316;margin-top:8px;" id="cpr-diff">—</div>
+            </div>
+          </div>
+          <div style="margin-top:14px;">
+            <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;margin-bottom:8px;">Estado grupos WhatsApp · SendFlow</div>
+            <div class="gstat-grid">
+              <div class="gstat green"><div class="gv">10.250</div><div class="gl">Participantes</div></div>
+              <div class="gstat"><div class="gv">14</div><div class="gl">Grupos</div></div>
+              <div class="gstat"><div class="gv">11</div><div class="gl">Completos</div></div>
+              <div class="gstat red"><div class="gv">745</div><div class="gl">Se fueron</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="card-title">Meta Leads vs Entraron al grupo</div>
+          <div class="card-sub wa">Comparativa diaria · 9–15 Mayo (SF pendiente 16 May)</div>
+          <div class="aleg"><span><span class="dot" style="background:#2D6A4F"></span>Leads Meta</span><span><span class="dot" style="background:#4ade80"></span>Entraron WA</span></div>
+          <div class="chart-wrap" style="height:185px"><canvas id="chart-meta-vs-wa"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-title">CPR Meta vs CPR CRM diario</div>
+          <div class="card-sub wa">Evolución del costo real por persona</div>
+          <div class="aleg"><span><span class="dot" style="background:#2D6A4F"></span>CPR Meta</span><span><span class="dot" style="background:#fbbf24"></span>CPR CRM</span></div>
+          <div class="chart-wrap" style="height:185px"><canvas id="chart-cpr-compare"></canvas></div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="card-title">Porcentaje de entrada al grupo</div>
+          <div class="card-sub wa">% de clics al link que entraron · Promedio 71.4%</div>
+          <div class="chart-wrap" style="height:175px"><canvas id="chart-entrada"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Salidas diarias del grupo</div>
+          <div class="card-sub wa">Personas que abandonaron el grupo por día</div>
+          <div class="chart-wrap" style="height:175px"><canvas id="chart-salida"></canvas></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Resumen diario completo · Meta + SendFlow</div>
+        <div class="card-sub wa">Embudo día a día · 9–16 Mayo 2026</div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr style="background:#111">
+              <th>Fecha</th><th>Gasto</th><th>Leads Meta</th><th>CPR Meta</th>
+              <th>Clics WA</th><th>Entraron</th><th>CPR CRM</th>
+              <th>% Entrada</th><th>Se fueron</th><th>% Salida</th>
+            </tr></thead>
+            <tbody id="funnel-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIENCIA -->
   <div class="panel" id="panel-audience">
     <div class="warn hidden" id="aud-warn">⚠️ Los datos de audiencia corresponden siempre al período completo.</div>
     <div style="display:flex;flex-direction:column;gap:12px;">
       <div class="card">
         <div class="card-title">Países · Origen de Leads</div>
-        <div class="card-sub">Leads con país identificado · 9–15 Mayo</div>
+        <div class="card-sub">Leads con país identificado · 9–16 Mayo</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
           <div class="chart-wrap" style="height:210px"><canvas id="chart-countries"></canvas></div>
           <div id="country-list"></div>
@@ -177,27 +287,30 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
       </div>
     </div>
   </div>
+
   <div class="footer">
-    <span>Cuenta: <span class="green">Solutions Engineering Team [3]</span> · ID 313462381636210</span>
+    <span>Cuenta: <span class="green">Solutions Engineering Team [3]</span> · ID 313462381636210 · SendFlow: De cero a Trader con [IA]</span>
     <span>Vértice · <span id="footer-time">—</span></span>
   </div>
 </div>
-<script>
-var ALL_CAMPS=[
-  {name:"Test ABO [WW]",        spent:5053.17,leads:6776,cpr:0.746,imp:705700,reach:319542},
-  {name:"Escala CBO [ARG]",     spent:1572.59,leads:1933,cpr:0.814,imp:326960,reach:231533},
-  {name:"Escala CBO [WW]",      spent:1590.38,leads:1880,cpr:0.846,imp:320215,reach:258792},
-  {name:"Escala CBO 2 [ARG]",   spent:2144.21,leads:2322,cpr:0.923,imp:506495,reach:394445},
-  {name:"Escala CBO [WW] Copia",spent:767.91, leads:891, cpr:0.862,imp:154382,reach:136547},
-  {name:"Escala2 CBO [WW]",     spent:319.12, leads:376, cpr:0.849,imp:50223, reach:43758},
-];
-var TOT={spent:11447.38,leads:14178,cpr:0.807,imp:2063975,reach:1384617};
 
-var DAILY_LABELS=["9 May","10 May","11 May","12 May","13 May","14 May","15 May ⚡"];
-var DAILY_SPEND= [36.60,  182.56,  220.03,  1908.90, 3876.56, 3114.81, 2107.92];
-var DAILY_LEADS= [17,     157,     204,     2361,    4991,    3920,    2528];
-var DAILY_CPR=   [2.153,  1.163,   1.079,   0.809,   0.777,   0.794,   0.834];
-var DAILY_TODAY= [false,  false,   false,   false,   false,   false,   true];
+<script>
+// ── DATA REAL (Meta API · 9–16 Mayo 2026) ────────────────────────────────────
+var ALL_CAMPS=[
+  {name:"Test ABO [WW]",        spent:5704.28,leads:7640,cpr:0.747,imp:798260,reach:351609},
+  {name:"Escala CBO [ARG]",     spent:1807.23,leads:2132,cpr:0.848,imp:360479,reach:254471},
+  {name:"Escala CBO [WW]",      spent:1787.88,leads:2081,cpr:0.859,imp:352586,reach:280159},
+  {name:"Escala CBO 2 [ARG]",   spent:2556.25,leads:2747,cpr:0.931,imp:604120,reach:451835},
+  {name:"Escala CBO [WW] Copia",spent:768.01, leads:891, cpr:0.862,imp:154391,reach:136547},
+  {name:"Escala2 CBO [WW]",     spent:376.89, leads:437, cpr:0.862,imp:59929, reach:50349},
+];
+var TOT={spent:13091.14,leads:15928,cpr:0.816,imp:2329765,reach:1524970};
+
+var DAILY_LABELS=["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May ⚡"];
+var DAILY_SPEND= [36.60,  182.56,  220.03,  1908.90, 3876.56, 3114.81, 2743.96, 987.63];
+var DAILY_LEADS= [17,     157,     204,     2361,    4991,    3920,    3231,    1047];
+var DAILY_CPR=   [2.153,  1.163,   1.079,   0.809,   0.777,   0.794,   0.849,   0.944];
+var DAILY_TODAY= [false,  false,   false,   false,   false,   false,   false,   true];
 
 var DAY_CAMPS=[
   [{name:"Test ABO [WW]",spent:29.23,leads:14,cpr:2.088},{name:"Escala CBO [ARG]",spent:7.37,leads:3,cpr:2.457}],
@@ -206,22 +319,25 @@ var DAY_CAMPS=[
   [{name:"Test ABO [WW]",spent:1397.05,leads:1601,cpr:0.873},{name:"Escala CBO [ARG]",spent:192.73,leads:320,cpr:0.602},{name:"Escala CBO [WW]",spent:220.04,leads:354,cpr:0.622},{name:"Escala2 CBO [WW]",spent:99.08,leads:86,cpr:1.152}],
   [{name:"Test ABO [WW]",spent:1402.07,leads:2036,cpr:0.689},{name:"Escala CBO [ARG]",spent:441.37,leads:571,cpr:0.773},{name:"Escala CBO [WW]",spent:549.04,leads:679,cpr:0.809},{name:"Escala2 CBO [WW]",spent:76.01,leads:104,cpr:0.731},{name:"Escala CBO 2 [ARG]",spent:845.93,leads:954,cpr:0.887},{name:"Escala CBO [WW] Copia",spent:562.14,leads:647,cpr:0.869}],
   [{name:"Test ABO [WW]",spent:1194.49,leads:1810,cpr:0.660},{name:"Escala CBO [ARG]",spent:457.72,leads:495,cpr:0.924},{name:"Escala CBO [WW]",spent:454.22,leads:464,cpr:0.979},{name:"Escala2 CBO [WW]",spent:82.91,leads:105,cpr:0.790},{name:"Escala CBO 2 [ARG]",spent:719.70,leads:802,cpr:0.897},{name:"Escala CBO [WW] Copia",spent:205.77,leads:244,cpr:0.843}],
-  [{name:"Test ABO [WW]",spent:735.46,leads:1072,cpr:0.686},{name:"Escala CBO [ARG]",spent:365.68,leads:426,cpr:0.858},{name:"Escala CBO [WW]",spent:367.08,leads:383,cpr:0.958},{name:"Escala2 CBO [WW]",spent:61.12,leads:81,cpr:0.755},{name:"Escala CBO 2 [ARG]",spent:578.58,leads:566,cpr:1.022}],
+  [{name:"Test ABO [WW]",spent:1003.71,leads:1430,cpr:0.701},{name:"Escala CBO [ARG]",spent:445.49,leads:497,cpr:0.896},{name:"Escala CBO [WW]",spent:447.86,leads:472,cpr:0.949},{name:"Escala CBO 2 [ARG]",spent:714.04,leads:723,cpr:0.988},{name:"Escala2 CBO [WW]",spent:86.95,leads:109,cpr:0.798}],
+  [{name:"Test ABO [WW]",spent:381.69,leads:506,cpr:0.754},{name:"Escala CBO [ARG]",spent:154.62,leads:128,cpr:1.208},{name:"Escala CBO [WW]",spent:116.46,leads:112,cpr:1.040},{name:"Escala CBO 2 [ARG]",spent:276.19,leads:268,cpr:1.031},{name:"Escala2 CBO [WW]",spent:31.88,leads:33,cpr:0.966}],
 ];
 
-var COUNTRIES=[
-  {name:"Argentina",leads:2503,pct:50.4,flag:"🇦🇷",color:"#4ade80"},
-  {name:"Ecuador",  leads:540, pct:10.9,flag:"🇪🇨",color:"#2D6A4F"},
-  {name:"Colombia", leads:502, pct:10.1,flag:"🇨🇴",color:"#2D6A4F"},
-  {name:"Perú",     leads:447, pct:9.0, flag:"🇵🇪",color:"#2D6A4F"},
-  {name:"México",   leads:318, pct:6.4, flag:"🇲🇽",color:"#1A4731"},
-  {name:"Uruguay",  leads:317, pct:6.4, flag:"🇺🇾",color:"#1A4731"},
-  {name:"Chile",    leads:259, pct:5.2, flag:"🇨🇱",color:"#1A4731"},
-  {name:"EE.UU.",   leads:84,  pct:1.7, flag:"🇺🇸",color:"#374151"},
-];
+// SendFlow (9-15 Mayo alineado - 16 May pendiente)
+var SF_LABELS=  ["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May"];
+var SF_CLICS=   [233,  221,  274,  1494, 2660, 1971, 1059, 490];
+var SF_ENTRARON=[147,  138,  173,  1006, 1793, 1294, 951,  340];
+var SF_PCT_ENT= [63.09,62.44,63.14,67.34,67.41,65.65,89.80,69.39];
+var SF_SALIERON=[43,   15,   55,   83,   126,  148,  158,  34];
+var SF_PCT_SAL= [29.25,10.87,31.79,8.25, 7.03, 11.44,16.61,10.00];
+var SF_CPR_CRM= DAILY_SPEND.map(function(s,i){return SF_ENTRARON[i]>0?s/SF_ENTRARON[i]:0;});
+var SF_TOT={clics:8469,entraron:6045,pct_entrada:71.39,salieron:745,participantes:10250,grupos:14,completos:11};
+
+var COUNTRIES=[{name:"Argentina",leads:2503,pct:50.4,flag:"🇦🇷",color:"#4ade80"},{name:"Ecuador",leads:540,pct:10.9,flag:"🇪🇨",color:"#2D6A4F"},{name:"Colombia",leads:502,pct:10.1,flag:"🇨🇴",color:"#2D6A4F"},{name:"Perú",leads:447,pct:9.0,flag:"🇵🇪",color:"#2D6A4F"},{name:"México",leads:318,pct:6.4,flag:"🇲🇽",color:"#1A4731"},{name:"Uruguay",leads:317,pct:6.4,flag:"🇺🇾",color:"#1A4731"},{name:"Chile",leads:259,pct:5.2,flag:"🇨🇱",color:"#1A4731"},{name:"EE.UU.",leads:84,pct:1.7,flag:"🇺🇸",color:"#374151"}];
 var AGES=[{range:"18-24",male:381,female:68,total:449},{range:"25-34",male:915,female:281,total:1196},{range:"35-44",male:1015,female:322,total:1337},{range:"45-54",male:852,female:278,total:1130},{range:"55-64",male:430,female:146,total:576},{range:"65+",male:169,female:76,total:245}];
 var GENDER=[{name:"Masculino",value:3762},{name:"Femenino",value:1171}];
 var GCOLS=["#2D6A4F","#7c3aed"];
+
 var currentDay="all";var charts={};
 function chipClass(v){return v<0.70?"g1":v<0.90?"g2":v<1.10?"g3":"g4";}
 function chipHtml(v){return '<span class="chip '+chipClass(v)+'">$'+v.toFixed(3)+'</span>';}
@@ -229,100 +345,113 @@ function rankColor(i){return i===0?"#4ade80":i===1?"#3d8c6a":i<4?"#2D6A4F":"#f97
 function cprTextColor(i){return i===0?"#4ade80":i<3?"#3d8c6a":i<5?"#E5E7EB":"#f97316";}
 function nowStr(){var d=new Date();return d.toLocaleDateString("es-AR",{day:"2-digit",month:"short"})+" · "+d.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"});}
 function fmtNum(n){return Number(n).toLocaleString("es-AR");}
-var baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:"#1C1C1C",borderColor:"#2D6A4F",borderWidth:1,titleColor:"#9CA3AF",bodyColor:"#fff",padding:10}},scales:{x:{grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10}},border:{display:false}},y:{grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10}},border:{display:false}}}};
-function cloneOpts(){return JSON.parse(JSON.stringify(baseOpts));}
+var B={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:"#1C1C1C",borderColor:"#2D6A4F",borderWidth:1,titleColor:"#9CA3AF",bodyColor:"#fff",padding:10}},scales:{x:{grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10}},border:{display:false}},y:{grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10}},border:{display:false}}}};
+function co(){return JSON.parse(JSON.stringify(B));}
+
 function updateKpis(){
   var isAll=currentDay==="all";var i=parseInt(currentDay);
-  document.getElementById("k-spent").textContent=isAll?"$"+TOT.spent.toLocaleString("en-US",{minimumFractionDigits:2}):"$"+DAILY_SPEND[i].toFixed(2);
-  document.getElementById("k-leads").textContent=isAll?fmtNum(TOT.leads):fmtNum(DAILY_LEADS[i]);
-  document.getElementById("k-cpr").textContent=isAll?"$"+TOT.cpr.toFixed(3):"$"+DAILY_CPR[i].toFixed(3);
-  document.getElementById("k-imp").textContent=isAll?fmtNum(TOT.imp):"—";
-  document.getElementById("k-reach").textContent=isAll?fmtNum(TOT.reach):"—";
+  var sp=isAll?TOT.spent:DAILY_SPEND[i];
+  var le=isAll?TOT.leads:DAILY_LEADS[i];
+  var en=isAll?SF_TOT.entraron:SF_ENTRARON[i];
+  var cm=isAll?TOT.cpr:DAILY_CPR[i];
+  var cc=en>0?sp/en:0;
+  document.getElementById("k-spent").textContent="$"+sp.toLocaleString("en-US",{minimumFractionDigits:2});
+  document.getElementById("k-leads").textContent=fmtNum(le);
+  document.getElementById("k-cpr").textContent="$"+cm.toFixed(3);
+  document.getElementById("k-entraron").textContent=fmtNum(en);
+  document.getElementById("k-cprcrm").textContent="$"+cc.toFixed(3);
+  document.getElementById("k-conv").textContent=le>0?(en/le*100).toFixed(1)+"%":"—";
+  document.getElementById("cpr-meta-big").textContent="$"+cm.toFixed(3);
+  document.getElementById("cpr-crm-big").textContent="$"+cc.toFixed(3);
+  var diff=cm>0?((cc-cm)/cm*100).toFixed(0):0;
+  document.getElementById("cpr-diff").textContent="+"+diff+"% más caro que CPR Meta";
 }
-function buildCprChart(){
-  if(charts.cpr)charts.cpr.destroy();
-  var opts=cloneOpts();opts.plugins.tooltip.callbacks={label:function(c){return "CPR: $"+c.parsed.y.toFixed(3);}};
-  opts.scales.y.ticks.callback=function(v){return "$"+v.toFixed(2);};
-  charts.cpr=new Chart(document.getElementById("chart-cpr"),{type:"line",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_CPR,label:"CPR $",borderColor:"#2D6A4F",backgroundColor:"rgba(45,106,79,0.1)",borderWidth:2.5,tension:0.3,fill:true,pointRadius:DAILY_TODAY.map(function(_,i){return DAILY_TODAY[i]?7:5;}),pointBackgroundColor:DAILY_LABELS.map(function(_,i){return DAILY_TODAY[i]?"#4ade80":(currentDay!=="all"&&i===parseInt(currentDay))?"#4ade80":"#2D6A4F";}),pointBorderColor:"#0A0A0A",pointBorderWidth:2}]},options:opts});
+
+function buildFunnelSteps(){
+  var isAll=currentDay==="all";var i=parseInt(currentDay);
+  var le=isAll?TOT.leads:DAILY_LEADS[i];
+  var cl=isAll?SF_TOT.clics:SF_CLICS[i];
+  var en=isAll?SF_TOT.entraron:SF_ENTRARON[i];
+  var steps=[
+    {icon:"📡",label:"Impresiones Meta",val:isAll?fmtNum(TOT.imp):"Solo en período completo",bar:100,color:"#374151",sub:""},
+    {icon:"✅",label:"Leads Meta (pixel)",val:fmtNum(le),bar:100,color:"#1A4731",sub:isAll?"Tasa: "+(le/TOT.imp*100).toFixed(2)+"% de impresiones":""},
+    {icon:"🔗",label:"Clics link WhatsApp",val:fmtNum(cl),bar:Math.round(cl/le*100),color:"#2D6A4F",sub:"Conv Lead→Clic: "+(cl/le*100).toFixed(1)+"%"},
+    {icon:"💬",label:"Entraron al grupo WA",val:fmtNum(en),bar:Math.round(en/le*100),color:"#4ade80",sub:"Conv Lead→Grupo: "+(en/le*100).toFixed(1)+"% · Conv Clic→Grupo: "+(en/cl*100).toFixed(1)+"%"},
+  ];
+  if(isAll)steps.push({icon:"👥",label:"Participantes activos",val:fmtNum(SF_TOT.participantes),bar:Math.round(SF_TOT.participantes/SF_TOT.entraron*100),color:"#86efac",sub:"Retención: "+((SF_TOT.participantes/SF_TOT.entraron)*100).toFixed(1)+"% del total ingresado"});
+  var html="";
+  steps.forEach(function(s){
+    html+='<div class="funnel-step" style="border-left-color:'+s.color+'">';
+    html+='<span style="font-size:20px;flex-shrink:0;margin-top:2px">'+s.icon+'</span>';
+    html+='<div style="flex:1"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">';
+    html+='<span style="font-size:10px;color:#9CA3AF;font-weight:600;text-transform:uppercase;letter-spacing:0.07em">'+s.label+'</span>';
+    html+='<span style="font-size:17px;font-weight:800">'+s.val+'</span></div>';
+    if(s.sub){html+='<div style="font-size:10px;color:#9CA3AF;margin-bottom:5px">'+s.sub+'</div>';}
+    html+='<div class="funnel-bar-wrap"><div class="funnel-bar" style="width:'+Math.min(s.bar,100)+'%;background:'+s.color+'"></div></div>';
+    html+='</div></div>';
+  });
+  document.getElementById("funnel-steps").innerHTML=html;
 }
-function buildLeadsChart(){
-  if(charts.leads)charts.leads.destroy();
-  charts.leads=new Chart(document.getElementById("chart-leads-daily"),{type:"bar",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_LEADS,label:"Leads",backgroundColor:DAILY_LABELS.map(function(_,i){return DAILY_TODAY[i]?"rgba(74,222,128,0.8)":(currentDay!=="all"&&i===parseInt(currentDay))?"#4ade80":"rgba(45,106,79,0.8)";}),borderRadius:4}]},options:cloneOpts()});
+
+function buildFunnelTable(){
+  var html="";
+  DAILY_LABELS.forEach(function(lbl,i){
+    var cm=DAILY_CPR[i];var cc=SF_CPR_CRM[i];
+    var isToday=DAILY_TODAY[i];
+    var bg=isToday?"background:#0f1a13;":"";
+    var sfNote=isToday?'<span style="font-size:10px;color:#9CA3AF">Pendiente</span>':'';
+    html+='<tr class="dr" style="'+bg+'">';
+    html+='<td style="font-weight:700;color:'+(isToday?"#4ade80":"#fff")+'">'+lbl+'</td>';
+    html+='<td style="font-family:monospace;color:#E5E7EB">$'+DAILY_SPEND[i].toFixed(2)+'</td>';
+    html+='<td style="font-weight:700">'+fmtNum(DAILY_LEADS[i])+'</td>';
+    html+='<td>'+chipHtml(cm)+'</td>';
+    html+='<td style="color:#9CA3AF">'+(isToday?sfNote:fmtNum(SF_CLICS[i]))+'</td>';
+    html+='<td style="color:#4ade80;font-weight:700">'+(isToday?sfNote:fmtNum(SF_ENTRARON[i]))+'</td>';
+    html+='<td>'+(isToday?sfNote:'<span class="chip g3">$'+cc.toFixed(3)+'</span>')+'</td>';
+    html+='<td style="color:'+(SF_PCT_ENT[i]>=75?"#4ade80":SF_PCT_ENT[i]>=65?"#86efac":"#fbbf24")+';font-weight:700">'+(isToday?sfNote:SF_PCT_ENT[i]+'%')+'</td>';
+    html+='<td style="color:'+(SF_SALIERON[i]>100?"#f87171":SF_SALIERON[i]>50?"#fbbf24":"#9CA3AF")+'">'+(isToday?sfNote:SF_SALIERON[i])+'</td>';
+    html+='<td style="color:#9CA3AF">'+(isToday?sfNote:SF_PCT_SAL[i]+'%')+'</td></tr>';
+  });
+  var tccrm=TOT.spent/SF_TOT.entraron;
+  html+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase">TOTAL</td>';
+  html+='<td style="font-weight:700;font-family:monospace">$'+TOT.spent.toLocaleString("en-US",{minimumFractionDigits:2})+'</td>';
+  html+='<td style="font-weight:800;font-size:13px">'+fmtNum(TOT.leads)+'</td>';
+  html+='<td>'+chipHtml(TOT.cpr)+'</td>';
+  html+='<td style="font-weight:700">'+fmtNum(SF_TOT.clics)+'</td>';
+  html+='<td style="color:#4ade80;font-weight:800;font-size:13px">'+fmtNum(SF_TOT.entraron)+'</td>';
+  html+='<td><span class="chip g3">$'+tccrm.toFixed(3)+'</span></td>';
+  html+='<td style="color:#4ade80;font-weight:700">'+SF_TOT.pct_entrada+'%</td>';
+  html+='<td style="font-weight:700">'+SF_TOT.salieron+'</td>';
+  html+='<td style="color:#9CA3AF">'+(SF_TOT.salieron/SF_TOT.entraron*100).toFixed(1)+'%</td></tr>';
+  document.getElementById("funnel-tbody").innerHTML=html;
 }
-function buildRankingChart(sorted){
-  if(charts.ranking)charts.ranking.destroy();
-  var opts=cloneOpts();opts.indexAxis="y";opts.plugins.tooltip.callbacks={label:function(c){return "CPR: $"+c.parsed.x.toFixed(3);}};
-  opts.scales.x={min:0,max:1.1,grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10},callback:function(v){return "$"+v.toFixed(2);}},border:{display:false}};
-  opts.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:10}},border:{display:false}};
-  charts.ranking=new Chart(document.getElementById("chart-ranking"),{type:"bar",data:{labels:sorted.map(function(c){return c.name;}),datasets:[{data:sorted.map(function(c){return c.cpr;}),label:"CPR $",backgroundColor:sorted.map(function(_,i){return rankColor(i);}),borderRadius:4}]},options:opts});
-}
-function buildCountriesChart(){
-  if(charts.countries)charts.countries.destroy();
-  var opts=cloneOpts();opts.indexAxis="y";opts.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:11}},border:{display:false}};
-  charts.countries=new Chart(document.getElementById("chart-countries"),{type:"bar",data:{labels:COUNTRIES.map(function(c){return c.name;}),datasets:[{data:COUNTRIES.map(function(c){return c.leads;}),label:"Leads",backgroundColor:COUNTRIES.map(function(c){return c.color;}),borderRadius:4}]},options:opts});
-}
-function buildGenderChart(){
-  if(charts.gender)charts.gender.destroy();
-  charts.gender=new Chart(document.getElementById("chart-gender"),{type:"doughnut",data:{labels:["Masculino","Femenino"],datasets:[{data:[3762,1171],backgroundColor:GCOLS,borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:"#1C1C1C",borderColor:"#2D6A4F",borderWidth:1,bodyColor:"#fff",padding:10}},cutout:"62%"}});
-  var gl=document.getElementById("gender-legend");gl.innerHTML="";
-  [{name:"Masculino",pct:"76.3%",val:3762,col:"#2D6A4F"},{name:"Femenino",pct:"23.7%",val:1171,col:"#7c3aed"}].forEach(function(g){gl.innerHTML+='<div class="grow"><div class="gdot" style="background:'+g.col+'"></div><div class="ginfo"><div class="ghdr"><span class="gname">'+g.name+'</span><span class="gpct" style="color:'+g.col+'">'+g.pct+'</span></div><div class="gcnt">'+g.val.toLocaleString("es-AR")+' leads</div></div></div>';});
-}
-function buildAgesChart(){
-  if(charts.ages)charts.ages.destroy();
-  var opts=cloneOpts();opts.plugins.legend={display:false};
-  charts.ages=new Chart(document.getElementById("chart-ages"),{type:"bar",data:{labels:AGES.map(function(a){return a.range;}),datasets:[{label:"Masculino",data:AGES.map(function(a){return a.male;}),backgroundColor:"#2D6A4F",borderRadius:3,maxBarThickness:22},{label:"Femenino",data:AGES.map(function(a){return a.female;}),backgroundColor:"#7c3aed",borderRadius:3,maxBarThickness:22}]},options:opts});
-  var ac=document.getElementById("age-chips");ac.innerHTML="";
-  AGES.forEach(function(a){ac.innerHTML+='<div class="achip"><div class="ar">'+a.range+'</div><div class="at">'+fmtNum(a.total)+'</div><div class="ap">'+Math.round(a.total/4933*100)+'%</div></div>';});
-}
-function updateMiniCards(){
-  var isAll=currentDay==="all";var idx=parseInt(currentDay);
-  var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);
-  var totalLeads=isAll?TOT.leads:DAILY_LEADS[idx];
-  document.getElementById("dist-title").textContent="Distribución · "+(isAll?"Todo el período":DAILY_LABELS[idx]);
-  var mc=document.getElementById("mini-camps");mc.innerHTML="";
-  if(!camps.length){mc.innerHTML='<span style="color:#9CA3AF;font-size:12px">Sin campañas activas ese día</span>';return;}
-  camps.forEach(function(c){var pct=((c.leads/totalLeads)*100).toFixed(1);mc.innerHTML+='<div class="mini-card"><div class="mini-name">'+c.name+'</div><div class="mini-row"><span class="mini-leads">'+fmtNum(c.leads)+'</span>'+chipHtml(c.cpr)+'</div><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:'+pct+'%"></div></div><div class="mini-foot">'+pct+'% · $'+c.spent.toFixed(0)+' USD</div></div>';});
-}
-function updateCampsTable(){
-  var isAll=currentDay==="all";var idx=parseInt(currentDay);
-  var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);
-  document.getElementById("camp-header").textContent="Campañas · "+(isAll?"9–15 Mayo 2026":DAILY_LABELS[idx]);
-  document.getElementById("camp-note").className=isAll?"hidden":"";
-  var cols=["Campaña","Gasto","Leads","CPR"];if(isAll)cols=cols.concat(["Impresiones","Alcance","Estado"]);
-  document.getElementById("camp-thead").innerHTML="<tr>"+cols.map(function(h){return "<th>"+h+"</th>";}).join("")+"</tr>";
-  var tbody=document.getElementById("camp-tbody");
-  if(!camps.length){tbody.innerHTML='<tr><td colspan="4" style="padding:24px;color:#9CA3AF;text-align:center">Sin datos para este día</td></tr>';return;}
-  var rows="";
-  camps.forEach(function(c){rows+='<tr class="dr"><td style="color:#fff;font-weight:600">'+c.name+'</td><td style="font-family:monospace;color:#E5E7EB">$'+c.spent.toFixed(2)+'</td><td style="font-weight:700">'+fmtNum(c.leads)+'</td><td>'+chipHtml(c.cpr)+'</td>'+(isAll?'<td style="color:#9CA3AF">'+fmtNum(c.imp)+'</td><td style="color:#9CA3AF">'+fmtNum(c.reach)+'</td><td style="color:#4ade80;font-size:11px">● Activa</td>':'')+' </tr>';});
-  var ts=camps.reduce(function(a,c){return{spent:a.spent+c.spent,leads:a.leads+c.leads};},{spent:0,leads:0});
-  var tcpr=ts.leads>0?ts.spent/ts.leads:0;
-  rows+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase;letter-spacing:0.06em">TOTAL</td><td style="font-weight:700;font-family:monospace">$'+ts.spent.toFixed(2)+'</td><td style="font-weight:800;font-size:13px">'+fmtNum(ts.leads)+'</td><td>'+chipHtml(tcpr)+'</td>'+(isAll?'<td style="font-weight:700">'+fmtNum(TOT.imp)+'</td><td style="font-weight:700">'+fmtNum(TOT.reach)+'</td><td></td>':'')+' </tr>';
-  tbody.innerHTML=rows;
-}
-function updateRanking(){
-  var isAll=currentDay==="all";var idx=parseInt(currentDay);
-  var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);
-  var label=isAll?"Todo el período":DAILY_LABELS[idx];
-  document.getElementById("rank-sub").textContent=label+" · menor es mejor";
-  document.getElementById("rank-title").textContent="Orden · "+label;
-  var sorted=camps.slice().sort(function(a,b){return a.cpr-b.cpr;});
-  if(!sorted.length){document.getElementById("rank-list").innerHTML='<span style="color:#9CA3AF;font-size:12px">Sin datos</span>';return;}
-  buildRankingChart(sorted);
-  var rl=document.getElementById("rank-list");rl.innerHTML="";
-  sorted.forEach(function(c,i){rl.innerHTML+='<div class="rcard'+(i===0?" first":"")+'"><div class="rnum '+(i===0?"r1":i===1?"r2":"")+'">'+( i+1)+'</div><div class="rinfo"><div class="rname">'+c.name+'</div><div class="rmeta">'+fmtNum(c.leads)+' leads · $'+c.spent.toFixed(0)+' USD</div></div><div class="rcpr"><div class="val" style="color:'+cprTextColor(i)+'">$'+c.cpr.toFixed(3)+'</div><div class="lbl">por lead</div></div></div>';});
-}
-function buildCountryList(){
-  var cl=document.getElementById("country-list");cl.innerHTML="";
-  COUNTRIES.forEach(function(c,i){cl.innerHTML+='<div class="crow"><span class="cflag">'+c.flag+'</span><div class="cinfo"><div class="chdr"><span class="cname">'+c.name+'</span><span class="cleads" style="color:'+(i===0?"#4ade80":"#E5E7EB")+'">'+fmtNum(c.leads)+'</span></div><div class="cbar-bg"><div class="cbar" style="width:'+c.pct+'%;background:'+(i===0?"#4ade80":i<3?"#2D6A4F":"#1A4731")+'"></div></div></div><span class="cpct">'+c.pct+'%</span></div>';});
-}
-function render(){updateKpis();updateMiniCards();buildCprChart();buildLeadsChart();updateCampsTable();updateRanking();}
+
+function buildCprChart(){if(charts.cpr)charts.cpr.destroy();var o=co();o.plugins.tooltip.callbacks={label:function(c){return"CPR: $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cpr=new Chart(document.getElementById("chart-cpr"),{type:"line",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_CPR,label:"CPR $",borderColor:"#2D6A4F",backgroundColor:"rgba(45,106,79,0.1)",borderWidth:2.5,tension:0.3,fill:true,pointRadius:5,pointBackgroundColor:DAILY_LABELS.map(function(_,i){return DAILY_TODAY[i]?"#4ade80":"#2D6A4F";}),pointBorderColor:"#0A0A0A",pointBorderWidth:2}]},options:o});}
+function buildLeadsChart(){if(charts.leads)charts.leads.destroy();charts.leads=new Chart(document.getElementById("chart-leads-daily"),{type:"bar",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_LEADS,label:"Leads Meta",backgroundColor:DAILY_LABELS.map(function(_,i){return DAILY_TODAY[i]?"rgba(74,222,128,0.8)":"rgba(45,106,79,0.8)";}),borderRadius:4}]},options:co()});}
+function buildRankingChart(s){if(charts.ranking)charts.ranking.destroy();var o=co();o.indexAxis="y";o.plugins.tooltip.callbacks={label:function(c){return"CPR: $"+c.parsed.x.toFixed(3);}};o.scales.x={min:0,max:1.1,grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10},callback:function(v){return"$"+v.toFixed(2);}},border:{display:false}};o.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:10}},border:{display:false}};charts.ranking=new Chart(document.getElementById("chart-ranking"),{type:"bar",data:{labels:s.map(function(c){return c.name;}),datasets:[{data:s.map(function(c){return c.cpr;}),label:"CPR $",backgroundColor:s.map(function(_,i){return rankColor(i);}),borderRadius:4}]},options:o});}
+function buildMetaVsWA(){if(charts.mvw)charts.mvw.destroy();var o=co();o.plugins.legend={display:false};charts.mvw=new Chart(document.getElementById("chart-meta-vs-wa"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Leads Meta",data:DAILY_LEADS,backgroundColor:"rgba(45,106,79,0.8)",borderRadius:3,maxBarThickness:18},{label:"Entraron WA",data:SF_ENTRARON,backgroundColor:"rgba(74,222,128,0.7)",borderRadius:3,maxBarThickness:18}]},options:o});}
+function buildCprCompare(){if(charts.cprc)charts.cprc.destroy();var o=co();o.plugins.legend={display:false};o.plugins.tooltip.callbacks={label:function(c){return c.dataset.label+": $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cprc=new Chart(document.getElementById("chart-cpr-compare"),{type:"line",data:{labels:SF_LABELS,datasets:[{label:"CPR Meta",data:DAILY_CPR,borderColor:"#2D6A4F",backgroundColor:"transparent",borderWidth:2,pointRadius:4,pointBackgroundColor:"#2D6A4F",tension:0.3},{label:"CPR CRM",data:SF_CPR_CRM,borderColor:"#fbbf24",backgroundColor:"rgba(251,191,36,0.08)",borderWidth:2,pointRadius:4,pointBackgroundColor:"#fbbf24",tension:0.3,fill:true}]},options:o});}
+function buildEntrada(){if(charts.ent)charts.ent.destroy();var o=co();o.plugins.tooltip.callbacks={label:function(c){return"Entrada: "+c.parsed.y.toFixed(1)+"%";}};o.scales.y.ticks.callback=function(v){return v+"%";};o.scales.y.min=0;o.scales.y.max=100;charts.ent=new Chart(document.getElementById("chart-entrada"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"% Entrada",data:SF_PCT_ENT,backgroundColor:SF_PCT_ENT.map(function(v){return v>=75?"rgba(74,222,128,0.8)":v>=65?"rgba(45,106,79,0.8)":"rgba(45,106,79,0.5)";}),borderRadius:4}]},options:o});}
+function buildSalida(){if(charts.sal)charts.sal.destroy();charts.sal=new Chart(document.getElementById("chart-salida"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Se fueron",data:SF_SALIERON,backgroundColor:SF_SALIERON.map(function(v){return v>100?"rgba(249,115,22,0.8)":v>50?"rgba(251,191,36,0.7)":"rgba(45,106,79,0.6)";}),borderRadius:4}]},options:co()});}
+function buildCountriesChart(){if(charts.co)charts.co.destroy();var o=co();o.indexAxis="y";o.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:11}},border:{display:false}};charts.co=new Chart(document.getElementById("chart-countries"),{type:"bar",data:{labels:COUNTRIES.map(function(c){return c.name;}),datasets:[{data:COUNTRIES.map(function(c){return c.leads;}),label:"Leads",backgroundColor:COUNTRIES.map(function(c){return c.color;}),borderRadius:4}]},options:o});}
+function buildGenderChart(){if(charts.ge)charts.ge.destroy();charts.ge=new Chart(document.getElementById("chart-gender"),{type:"doughnut",data:{labels:["Masculino","Femenino"],datasets:[{data:[3762,1171],backgroundColor:GCOLS,borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:"#1C1C1C",borderColor:"#2D6A4F",borderWidth:1,bodyColor:"#fff",padding:10}},cutout:"62%"}});var gl=document.getElementById("gender-legend");gl.innerHTML="";[{name:"Masculino",pct:"76.3%",val:3762,col:"#2D6A4F"},{name:"Femenino",pct:"23.7%",val:1171,col:"#7c3aed"}].forEach(function(g){gl.innerHTML+='<div class="grow"><div class="gdot" style="background:'+g.col+'"></div><div class="ginfo"><div class="ghdr"><span class="gname">'+g.name+'</span><span class="gpct" style="color:'+g.col+'">'+g.pct+'</span></div><div class="gcnt">'+g.val.toLocaleString("es-AR")+' leads</div></div></div>';});}
+function buildAgesChart(){if(charts.ag)charts.ag.destroy();var o=co();o.plugins.legend={display:false};charts.ag=new Chart(document.getElementById("chart-ages"),{type:"bar",data:{labels:AGES.map(function(a){return a.range;}),datasets:[{label:"Masculino",data:AGES.map(function(a){return a.male;}),backgroundColor:"#2D6A4F",borderRadius:3,maxBarThickness:22},{label:"Femenino",data:AGES.map(function(a){return a.female;}),backgroundColor:"#7c3aed",borderRadius:3,maxBarThickness:22}]},options:o});var ac=document.getElementById("age-chips");ac.innerHTML="";AGES.forEach(function(a){ac.innerHTML+='<div class="achip"><div class="ar">'+a.range+'</div><div class="at">'+fmtNum(a.total)+'</div><div class="ap">'+Math.round(a.total/4933*100)+'%</div></div>';});}
+function buildCountryList(){var cl=document.getElementById("country-list");cl.innerHTML="";COUNTRIES.forEach(function(c,i){cl.innerHTML+='<div class="crow"><span class="cflag">'+c.flag+'</span><div class="cinfo"><div class="chdr"><span class="cname">'+c.name+'</span><span class="cleads" style="color:'+(i===0?"#4ade80":"#E5E7EB")+'">'+fmtNum(c.leads)+'</span></div><div class="cbar-bg"><div class="cbar" style="width:'+c.pct+'%;background:'+(i===0?"#4ade80":i<3?"#2D6A4F":"#1A4731")+'"></div></div></div><span class="cpct">'+c.pct+'%</span></div>';});}
+function updateMiniCards(){var isAll=currentDay==="all";var idx=parseInt(currentDay);var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);var tl=isAll?TOT.leads:DAILY_LEADS[idx];document.getElementById("dist-title").textContent="Distribución · "+(isAll?"Todo el período":DAILY_LABELS[idx]);var mc=document.getElementById("mini-camps");mc.innerHTML="";if(!camps.length){mc.innerHTML='<span style="color:#9CA3AF;font-size:12px">Sin campañas</span>';return;}camps.forEach(function(c){var p=((c.leads/tl)*100).toFixed(1);mc.innerHTML+='<div class="mini-card"><div class="mini-name">'+c.name+'</div><div class="mini-row"><span class="mini-leads">'+fmtNum(c.leads)+'</span>'+chipHtml(c.cpr)+'</div><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:'+p+'%"></div></div><div class="mini-foot">'+p+'% · $'+c.spent.toFixed(0)+' USD</div></div>';});}
+function updateCampsTable(){var isAll=currentDay==="all";var idx=parseInt(currentDay);var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);document.getElementById("camp-header").textContent="Campañas · "+(isAll?"9–16 Mayo 2026":DAILY_LABELS[idx]);document.getElementById("camp-note").className=isAll?"hidden":"";var cols=["Campaña","Gasto","Leads","CPR"];if(isAll)cols=cols.concat(["Impresiones","Alcance","Estado"]);document.getElementById("camp-thead").innerHTML="<tr>"+cols.map(function(h){return"<th>"+h+"</th>";}).join("")+"</tr>";var tbody=document.getElementById("camp-tbody");if(!camps.length){tbody.innerHTML='<tr><td colspan="4" style="padding:24px;color:#9CA3AF;text-align:center">Sin datos</td></tr>';return;}var rows="";camps.forEach(function(c){rows+='<tr class="dr"><td style="color:#fff;font-weight:600">'+c.name+'</td><td style="font-family:monospace;color:#E5E7EB">$'+c.spent.toFixed(2)+'</td><td style="font-weight:700">'+fmtNum(c.leads)+'</td><td>'+chipHtml(c.cpr)+'</td>'+(isAll?'<td style="color:#9CA3AF">'+fmtNum(c.imp)+'</td><td style="color:#9CA3AF">'+fmtNum(c.reach)+'</td><td style="color:#4ade80;font-size:11px">● Activa</td>':'')+' </tr>';});var ts=camps.reduce(function(a,c){return{spent:a.spent+c.spent,leads:a.leads+c.leads};},{spent:0,leads:0});var tc=ts.leads>0?ts.spent/ts.leads:0;rows+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase">TOTAL</td><td style="font-weight:700;font-family:monospace">$'+ts.spent.toFixed(2)+'</td><td style="font-weight:800;font-size:13px">'+fmtNum(ts.leads)+'</td><td>'+chipHtml(tc)+'</td>'+(isAll?'<td style="font-weight:700">'+fmtNum(TOT.imp)+'</td><td style="font-weight:700">'+fmtNum(TOT.reach)+'</td><td></td>':'')+' </tr>';tbody.innerHTML=rows;}
+function updateRanking(){var isAll=currentDay==="all";var idx=parseInt(currentDay);var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);var lbl=isAll?"Todo el período":DAILY_LABELS[idx];document.getElementById("rank-sub").textContent=lbl+" · menor es mejor";document.getElementById("rank-title").textContent="Orden · "+lbl;var sorted=camps.slice().sort(function(a,b){return a.cpr-b.cpr;});if(!sorted.length){document.getElementById("rank-list").innerHTML='<span style="color:#9CA3AF;font-size:12px">Sin datos</span>';return;}buildRankingChart(sorted);var rl=document.getElementById("rank-list");rl.innerHTML="";sorted.forEach(function(c,i){rl.innerHTML+='<div class="rcard'+(i===0?" first":"")+'"><div class="rnum '+(i===0?"r1":i===1?"r2":"")+'">'+( i+1)+'</div><div class="rinfo"><div class="rname">'+c.name+'</div><div class="rmeta">'+fmtNum(c.leads)+' leads · $'+c.spent.toFixed(0)+' USD</div></div><div class="rcpr"><div class="val" style="color:'+cprTextColor(i)+'">$'+c.cpr.toFixed(3)+'</div><div class="lbl">por lead</div></div></div>';});}
+function render(){updateKpis();updateMiniCards();buildCprChart();buildLeadsChart();updateCampsTable();updateRanking();buildFunnelSteps();}
+
 window.addEventListener("load",function(){
   var t=nowStr();
   document.getElementById("upd-time").textContent="Actualizado "+t;
   document.getElementById("footer-time").textContent=t;
   document.querySelectorAll(".tb").forEach(function(btn){btn.addEventListener("click",function(){document.querySelectorAll(".tb").forEach(function(b){b.classList.remove("on");});document.querySelectorAll(".panel").forEach(function(p){p.classList.remove("on");});btn.classList.add("on");var p=document.getElementById("panel-"+btn.dataset.tab);if(p)p.classList.add("on");});});
   document.querySelectorAll(".db").forEach(function(btn){btn.addEventListener("click",function(){document.querySelectorAll(".db").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");currentDay=btn.dataset.day;document.getElementById("aud-warn").className=(currentDay==="all")?"warn hidden":"warn";render();});});
-  buildCountriesChart();buildCountryList();buildGenderChart();buildAgesChart();render();
+  buildCountriesChart();buildCountryList();buildGenderChart();buildAgesChart();
+  buildMetaVsWA();buildCprCompare();buildEntrada();buildSalida();
+  buildFunnelTable();
+  render();
 });
 </script>
 </body>
