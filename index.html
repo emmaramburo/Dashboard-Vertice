@@ -114,7 +114,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     <div><div class="brand-name">VÉRTICE</div><div class="brand-sub">TRÁFICO · ESTRATEGIA · COMUNICACIÓN</div></div>
   </div>
   <div class="header-right">
-    <div>LANZAMIENTO MAYO · 6 campañas activas</div>
+    <div>LANZAMIENTO MAYO · 6 campañas con leads activas</div>
     <div class="upd" id="upd-time">—</div>
   </div>
 </div>
@@ -295,39 +295,36 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
 </div>
 
 <script>
-// ── META DATA (API · 9–16 Mayo 2026) ─────────────────────────────────────────
+// ── META DATA (API fresca · 16 Mayo 2026) ─────────────────────────────────────
 var ALL_CAMPS=[
-  {name:"Test ABO [WW]",        spent:5704.28,leads:7640,cpr:0.747,imp:798260, reach:351609},
-  {name:"Escala CBO [ARG]",     spent:1807.23,leads:2132,cpr:0.848,imp:360479, reach:254471},
-  {name:"Escala CBO [WW]",      spent:1787.88,leads:2081,cpr:0.859,imp:352586, reach:280159},
-  {name:"Escala CBO 2 [ARG]",   spent:2556.25,leads:2747,cpr:0.931,imp:604120, reach:451835},
-  {name:"Escala CBO [WW] Copia",spent:768.01, leads:891, cpr:0.862,imp:154391, reach:136547},
-  {name:"Escala2 CBO [WW]",     spent:376.89, leads:437, cpr:0.862,imp:59929,  reach:50349},
+  {name:"Test ABO [WW]",             spent:6362.78,leads:8497,cpr:0.749,imp:896124, reach:392300},
+  {name:"Escala CBO [ARG]",          spent:2020.51,leads:2330,cpr:0.867,imp:393169, reach:278868},
+  {name:"Escala CBO [Arg-Col-Ec-Pr]",spent:2032.33,leads:2297,cpr:0.885,imp:397128, reach:311879},
+  {name:"Escala CBO 2 [ARG]",        spent:2944.03,leads:3245,cpr:0.907,imp:724917, reach:511872},
+  {name:"Escala CBO [WW] Copia",     spent:768.01, leads:891, cpr:0.862,imp:154391, reach:136547},
+  {name:"Escala2 [Arg-Col-Ec-Pr]",   spent:442.95, leads:491, cpr:0.902,imp:72728,  reach:58720},
 ];
-var TOT={spent:13091.14,leads:15928,cpr:0.822,imp:2329765,reach:1524970};
+var TOT={spent:14682.01,leads:17751,cpr:0.827,imp:2638857,reach:1690186};
 
 var DAILY_LABELS=["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May ⚡"];
-var DAILY_SPEND= [36.60,  182.56,  220.03,  1908.90, 3876.56, 3114.81, 2743.96, 987.63];
-var DAILY_LEADS= [17,     157,     204,     2361,    4991,    3920,    3231,    1047];
-var DAILY_CPR=   [2.153,  1.163,   1.079,   0.809,   0.777,   0.794,   0.849,   0.944];
+var DAILY_SPEND= [36.60,  182.56,  220.03,  1908.90, 3876.56, 3114.81, 2743.96, 2573.64];
+var DAILY_LEADS= [17,     157,     204,     2361,    4991,    3920,    3231,    2870];
+var DAILY_CPR=   [2.153,  1.163,   1.079,   0.809,   0.777,   0.794,   0.849,   0.897];
 var DAILY_TODAY= [false,  false,   false,   false,   false,   false,   false,   true];
 
 var DAY_CAMPS=[
   [{name:"Test ABO [WW]",spent:29.23,leads:14,cpr:2.088},{name:"Escala CBO [ARG]",spent:7.37,leads:3,cpr:2.457}],
   [{name:"Test ABO [WW]",spent:138.03,leads:99,cpr:1.394},{name:"Escala CBO [ARG]",spent:44.53,leads:58,cpr:0.768}],
   [{name:"Test ABO [WW]",spent:156.84,leads:144,cpr:1.089},{name:"Escala CBO [ARG]",spent:63.19,leads:60,cpr:1.053}],
-  [{name:"Test ABO [WW]",spent:1397.05,leads:1601,cpr:0.873},{name:"Escala CBO [ARG]",spent:192.73,leads:320,cpr:0.602},{name:"Escala CBO [WW]",spent:220.04,leads:354,cpr:0.622},{name:"Escala2 CBO [WW]",spent:99.08,leads:86,cpr:1.152}],
-  [{name:"Test ABO [WW]",spent:1402.07,leads:2036,cpr:0.689},{name:"Escala CBO [ARG]",spent:441.37,leads:571,cpr:0.773},{name:"Escala CBO [WW]",spent:549.04,leads:679,cpr:0.809},{name:"Escala2 CBO [WW]",spent:76.01,leads:104,cpr:0.731},{name:"Escala CBO 2 [ARG]",spent:845.93,leads:954,cpr:0.887},{name:"Escala CBO [WW] Copia",spent:562.14,leads:647,cpr:0.869}],
-  [{name:"Test ABO [WW]",spent:1194.49,leads:1810,cpr:0.660},{name:"Escala CBO [ARG]",spent:457.72,leads:495,cpr:0.924},{name:"Escala CBO [WW]",spent:454.22,leads:464,cpr:0.979},{name:"Escala2 CBO [WW]",spent:82.91,leads:105,cpr:0.790},{name:"Escala CBO 2 [ARG]",spent:719.70,leads:802,cpr:0.897},{name:"Escala CBO [WW] Copia",spent:205.77,leads:244,cpr:0.843}],
-  [{name:"Test ABO [WW]",spent:1003.71,leads:1430,cpr:0.701},{name:"Escala CBO [ARG]",spent:445.49,leads:497,cpr:0.896},{name:"Escala CBO [WW]",spent:447.86,leads:472,cpr:0.949},{name:"Escala CBO 2 [ARG]",spent:714.04,leads:723,cpr:0.988},{name:"Escala2 CBO [WW]",spent:86.95,leads:109,cpr:0.798}],
-  [{name:"Test ABO [WW]",spent:381.69,leads:506,cpr:0.754},{name:"Escala CBO [ARG]",spent:154.62,leads:128,cpr:1.208},{name:"Escala CBO [WW]",spent:116.46,leads:112,cpr:1.040},{name:"Escala CBO 2 [ARG]",spent:276.19,leads:268,cpr:1.031},{name:"Escala2 CBO [WW]",spent:31.88,leads:33,cpr:0.966}],
+  [{name:"Test ABO [WW]",spent:1397.05,leads:1601,cpr:0.873},{name:"Escala CBO [ARG]",spent:192.73,leads:320,cpr:0.602},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:220.04,leads:354,cpr:0.622},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:99.08,leads:86,cpr:1.152}],
+  [{name:"Test ABO [WW]",spent:1402.07,leads:2036,cpr:0.689},{name:"Escala CBO [ARG]",spent:441.37,leads:571,cpr:0.773},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:549.04,leads:679,cpr:0.809},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:76.01,leads:104,cpr:0.731},{name:"Escala CBO 2 [ARG]",spent:845.93,leads:954,cpr:0.887},{name:"Escala CBO [WW] Copia",spent:562.14,leads:647,cpr:0.869}],
+  [{name:"Test ABO [WW]",spent:1194.49,leads:1810,cpr:0.660},{name:"Escala CBO [ARG]",spent:457.72,leads:495,cpr:0.924},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:454.22,leads:464,cpr:0.979},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:82.91,leads:105,cpr:0.790},{name:"Escala CBO 2 [ARG]",spent:719.70,leads:802,cpr:0.897},{name:"Escala CBO [WW] Copia",spent:205.77,leads:244,cpr:0.843}],
+  [{name:"Test ABO [WW]",spent:1003.71,leads:1430,cpr:0.701},{name:"Escala CBO [ARG]",spent:445.49,leads:497,cpr:0.896},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:447.86,leads:472,cpr:0.949},{name:"Escala CBO 2 [ARG]",spent:714.04,leads:723,cpr:0.988},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:86.95,leads:109,cpr:0.798}],
+  [{name:"Test ABO [WW]",spent:1037.77,leads:1363,cpr:0.761},{name:"Escala CBO [ARG]",spent:367.42,leads:326,cpr:1.127},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:360.11,leads:328,cpr:1.098},{name:"Escala CBO 2 [ARG]",spent:663.27,leads:766,cpr:0.866},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:97.65,leads:87,cpr:1.122}],
 ];
 
-// ── SENDFLOW DATA (screenshot 22:35 16/05) ────────────────────────────────────
-// Totales SendFlow
-var SF_TOT={clics:9320,entraron:6599,pct_entrada:70.8,salieron:856,participantes:10706,grupos:14,completos:11,disponibles:3};
-
-// Datos diarios 9–16 Mayo (SendFlow)
+// ── SENDFLOW (screenshot 22:35 16/05) ────────────────────────────────────────
+var SF_TOT={clics:9320,entraron:6599,pct_entrada:70.8,salieron:856,participantes:10706,grupos:14,completos:11};
 var SF_LABELS=   ["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May ⚡"];
 var SF_CLICS=    [233,  221,  274,  1494, 2660, 1971, 1089, 1041];
 var SF_ENTRARON= [147,  128,  173,  1006, 1783, 1294, 951,  892];
@@ -336,7 +333,6 @@ var SF_SALIERON= [43,   41,   19,   83,   125,  148,  158,  145];
 var SF_PCT_SAL=  [29.25,31.79,10.87,8.25, 7.03, 11.44,16.61,16.26];
 var SF_CPR_CRM=  DAILY_SPEND.map(function(s,i){return SF_ENTRARON[i]>0?s/SF_ENTRARON[i]:0;});
 
-// Audiencia
 var COUNTRIES=[{name:"Argentina",leads:2503,pct:50.4,flag:"🇦🇷",color:"#4ade80"},{name:"Ecuador",leads:540,pct:10.9,flag:"🇪🇨",color:"#2D6A4F"},{name:"Colombia",leads:502,pct:10.1,flag:"🇨🇴",color:"#2D6A4F"},{name:"Perú",leads:447,pct:9.0,flag:"🇵🇪",color:"#2D6A4F"},{name:"México",leads:318,pct:6.4,flag:"🇲🇽",color:"#1A4731"},{name:"Uruguay",leads:317,pct:6.4,flag:"🇺🇾",color:"#1A4731"},{name:"Chile",leads:259,pct:5.2,flag:"🇨🇱",color:"#1A4731"},{name:"EE.UU.",leads:84,pct:1.7,flag:"🇺🇸",color:"#374151"}];
 var AGES=[{range:"18-24",male:381,female:68,total:449},{range:"25-34",male:915,female:281,total:1196},{range:"35-44",male:1015,female:322,total:1337},{range:"45-54",male:852,female:278,total:1130},{range:"55-64",male:430,female:146,total:576},{range:"65+",male:169,female:76,total:245}];
 var GENDER=[{name:"Masculino",value:3762},{name:"Femenino",value:1171}];
@@ -382,7 +378,7 @@ function buildFunnelSteps(){
     {icon:"🔗",label:"Clics link WhatsApp",val:fmtNum(cl),bar:Math.round(cl/le*100),color:"#2D6A4F",sub:"Conv Lead→Clic: "+(cl/le*100).toFixed(1)+"%"},
     {icon:"💬",label:"Entraron al grupo WA",val:fmtNum(en),bar:Math.round(en/le*100),color:"#4ade80",sub:"Conv Lead→Grupo: "+(en/le*100).toFixed(1)+"% · Conv Clic→Grupo: "+(en/cl*100).toFixed(1)+"%"},
   ];
-  if(isAll)steps.push({icon:"👥",label:"Participantes activos",val:fmtNum(SF_TOT.participantes),bar:Math.round(SF_TOT.participantes/SF_TOT.entraron*100),color:"#86efac",sub:"Retención: "+(SF_TOT.participantes/SF_TOT.entraron*100).toFixed(1)+"% del total ingresado · "+SF_TOT.salieron+" se fueron"});
+  if(isAll)steps.push({icon:"👥",label:"Participantes activos",val:fmtNum(SF_TOT.participantes),bar:Math.round(SF_TOT.participantes/SF_TOT.entraron*100),color:"#86efac",sub:"Retención: "+(SF_TOT.participantes/SF_TOT.entraron*100).toFixed(1)+"% · "+SF_TOT.salieron+" se fueron"});
   var html="";
   steps.forEach(function(s){
     html+='<div class="funnel-step" style="border-left-color:'+s.color+'">';
