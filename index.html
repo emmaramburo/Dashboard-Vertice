@@ -140,7 +140,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     <div class="kcard"><div class="kcard-label">Entraron WA</div><div class="kcard-value" id="k-entraron">—</div><div class="kcard-sub">Grupos WhatsApp</div></div>
     <div class="kcard amber"><div class="kcard-label">CPR CRM</div><div class="kcard-value" id="k-cprcrm">—</div><div class="kcard-sub">Por persona en grupo</div></div>
     <div class="kcard"><div class="kcard-label">Conv Lead→WA</div><div class="kcard-value" id="k-conv">—</div><div class="kcard-sub">% leads en grupo</div></div>
-    <div class="kcard"><div class="kcard-label">Retención WA</div><div class="kcard-value">89.1%</div><div class="kcard-sub">Activos en grupos</div></div>
+    <div class="kcard"><div class="kcard-label">Retención WA</div><div class="kcard-value">87.0%</div><div class="kcard-sub">Activos / ingresados</div></div>
   </div>
 
   <div class="tabs">
@@ -154,7 +154,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
   <!-- RESUMEN -->
   <div class="panel on" id="panel-overview">
     <div class="grid2">
-      <div class="card"><div class="card-title">Evolución CPR</div><div class="card-sub">Costo por lead diario · 9–16 Mayo</div><div class="chart-wrap" style="height:180px"><canvas id="chart-cpr"></canvas></div></div>
+      <div class="card"><div class="card-title">Evolución CPR Meta</div><div class="card-sub">Costo por lead diario · 9–16 Mayo</div><div class="chart-wrap" style="height:180px"><canvas id="chart-cpr"></canvas></div></div>
       <div class="card"><div class="card-title">Leads Diarios</div><div class="card-sub">Conversiones Meta por día</div><div class="chart-wrap" style="height:180px"><canvas id="chart-leads-daily"></canvas></div></div>
       <div class="card span2"><div class="card-title" id="dist-title">Distribución · Todo el período</div><div class="mini-grid" id="mini-camps"></div></div>
     </div>
@@ -174,7 +174,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
   <!-- RANKING -->
   <div class="panel" id="panel-ranking">
     <div class="grid2">
-      <div class="card"><div class="card-title">Ranking CPR</div><div class="card-sub" id="rank-sub">Todo el período</div><div class="chart-wrap" style="height:300px"><canvas id="chart-ranking"></canvas></div></div>
+      <div class="card"><div class="card-title">Ranking CPR</div><div class="card-sub" id="rank-sub">Todo el período · menor es mejor</div><div class="chart-wrap" style="height:300px"><canvas id="chart-ranking"></canvas></div></div>
       <div>
         <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;padding-bottom:8px;border-bottom:1px solid #262626;margin-bottom:8px;" id="rank-title">Orden · Todo el período</div>
         <div class="rank-list" id="rank-list"></div>
@@ -188,7 +188,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
       <div class="grid2">
         <div class="card">
           <div class="card-title">Embudo completo</div>
-          <div class="card-sub wa">Meta Ads → SendFlow → Grupos WhatsApp</div>
+          <div class="card-sub wa">Meta Ads → SendFlow → Grupos WhatsApp · 9–16 Mayo</div>
           <div id="funnel-steps"></div>
         </div>
         <div class="card">
@@ -208,12 +208,12 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
             </div>
           </div>
           <div style="margin-top:14px;">
-            <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;margin-bottom:8px;">Estado grupos WhatsApp · SendFlow</div>
+            <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;margin-bottom:8px;">Estado grupos · SendFlow</div>
             <div class="gstat-grid">
-              <div class="gstat green"><div class="gv">10.250</div><div class="gl">Participantes</div></div>
+              <div class="gstat green"><div class="gv">10.706</div><div class="gl">Participantes</div></div>
               <div class="gstat"><div class="gv">14</div><div class="gl">Grupos</div></div>
               <div class="gstat"><div class="gv">11</div><div class="gl">Completos</div></div>
-              <div class="gstat red"><div class="gv">745</div><div class="gl">Se fueron</div></div>
+              <div class="gstat red"><div class="gv">856</div><div class="gl">Se fueron</div></div>
             </div>
           </div>
         </div>
@@ -222,7 +222,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
       <div class="grid2">
         <div class="card">
           <div class="card-title">Meta Leads vs Entraron al grupo</div>
-          <div class="card-sub wa">Comparativa diaria · 9–15 Mayo (SF pendiente 16 May)</div>
+          <div class="card-sub wa">Comparativa diaria · 9–16 Mayo</div>
           <div class="aleg"><span><span class="dot" style="background:#2D6A4F"></span>Leads Meta</span><span><span class="dot" style="background:#4ade80"></span>Entraron WA</span></div>
           <div class="chart-wrap" style="height:185px"><canvas id="chart-meta-vs-wa"></canvas></div>
         </div>
@@ -237,7 +237,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
       <div class="grid2">
         <div class="card">
           <div class="card-title">Porcentaje de entrada al grupo</div>
-          <div class="card-sub wa">% de clics al link que entraron · Promedio 71.4%</div>
+          <div class="card-sub wa">% de clics que entraron · Promedio 70.8%</div>
           <div class="chart-wrap" style="height:175px"><canvas id="chart-entrada"></canvas></div>
         </div>
         <div class="card">
@@ -295,16 +295,16 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
 </div>
 
 <script>
-// ── DATA REAL (Meta API · 9–16 Mayo 2026) ────────────────────────────────────
+// ── META DATA (API · 9–16 Mayo 2026) ─────────────────────────────────────────
 var ALL_CAMPS=[
-  {name:"Test ABO [WW]",        spent:5704.28,leads:7640,cpr:0.747,imp:798260,reach:351609},
-  {name:"Escala CBO [ARG]",     spent:1807.23,leads:2132,cpr:0.848,imp:360479,reach:254471},
-  {name:"Escala CBO [WW]",      spent:1787.88,leads:2081,cpr:0.859,imp:352586,reach:280159},
-  {name:"Escala CBO 2 [ARG]",   spent:2556.25,leads:2747,cpr:0.931,imp:604120,reach:451835},
-  {name:"Escala CBO [WW] Copia",spent:768.01, leads:891, cpr:0.862,imp:154391,reach:136547},
-  {name:"Escala2 CBO [WW]",     spent:376.89, leads:437, cpr:0.862,imp:59929, reach:50349},
+  {name:"Test ABO [WW]",        spent:5704.28,leads:7640,cpr:0.747,imp:798260, reach:351609},
+  {name:"Escala CBO [ARG]",     spent:1807.23,leads:2132,cpr:0.848,imp:360479, reach:254471},
+  {name:"Escala CBO [WW]",      spent:1787.88,leads:2081,cpr:0.859,imp:352586, reach:280159},
+  {name:"Escala CBO 2 [ARG]",   spent:2556.25,leads:2747,cpr:0.931,imp:604120, reach:451835},
+  {name:"Escala CBO [WW] Copia",spent:768.01, leads:891, cpr:0.862,imp:154391, reach:136547},
+  {name:"Escala2 CBO [WW]",     spent:376.89, leads:437, cpr:0.862,imp:59929,  reach:50349},
 ];
-var TOT={spent:13091.14,leads:15928,cpr:0.816,imp:2329765,reach:1524970};
+var TOT={spent:13091.14,leads:15928,cpr:0.822,imp:2329765,reach:1524970};
 
 var DAILY_LABELS=["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May ⚡"];
 var DAILY_SPEND= [36.60,  182.56,  220.03,  1908.90, 3876.56, 3114.81, 2743.96, 987.63];
@@ -323,16 +323,20 @@ var DAY_CAMPS=[
   [{name:"Test ABO [WW]",spent:381.69,leads:506,cpr:0.754},{name:"Escala CBO [ARG]",spent:154.62,leads:128,cpr:1.208},{name:"Escala CBO [WW]",spent:116.46,leads:112,cpr:1.040},{name:"Escala CBO 2 [ARG]",spent:276.19,leads:268,cpr:1.031},{name:"Escala2 CBO [WW]",spent:31.88,leads:33,cpr:0.966}],
 ];
 
-// SendFlow (9-15 Mayo alineado - 16 May pendiente)
-var SF_LABELS=  ["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May"];
-var SF_CLICS=   [233,  221,  274,  1494, 2660, 1971, 1059, 490];
-var SF_ENTRARON=[147,  138,  173,  1006, 1793, 1294, 951,  340];
-var SF_PCT_ENT= [63.09,62.44,63.14,67.34,67.41,65.65,89.80,69.39];
-var SF_SALIERON=[43,   15,   55,   83,   126,  148,  158,  34];
-var SF_PCT_SAL= [29.25,10.87,31.79,8.25, 7.03, 11.44,16.61,10.00];
-var SF_CPR_CRM= DAILY_SPEND.map(function(s,i){return SF_ENTRARON[i]>0?s/SF_ENTRARON[i]:0;});
-var SF_TOT={clics:8469,entraron:6045,pct_entrada:71.39,salieron:745,participantes:10250,grupos:14,completos:11};
+// ── SENDFLOW DATA (screenshot 22:35 16/05) ────────────────────────────────────
+// Totales SendFlow
+var SF_TOT={clics:9320,entraron:6599,pct_entrada:70.8,salieron:856,participantes:10706,grupos:14,completos:11,disponibles:3};
 
+// Datos diarios 9–16 Mayo (SendFlow)
+var SF_LABELS=   ["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May ⚡"];
+var SF_CLICS=    [233,  221,  274,  1494, 2660, 1971, 1089, 1041];
+var SF_ENTRARON= [147,  128,  173,  1006, 1783, 1294, 951,  892];
+var SF_PCT_ENT=  [63.09,62.44,63.14,67.34,67.41,65.65,89.80,66.52];
+var SF_SALIERON= [43,   41,   19,   83,   125,  148,  158,  145];
+var SF_PCT_SAL=  [29.25,31.79,10.87,8.25, 7.03, 11.44,16.61,16.26];
+var SF_CPR_CRM=  DAILY_SPEND.map(function(s,i){return SF_ENTRARON[i]>0?s/SF_ENTRARON[i]:0;});
+
+// Audiencia
 var COUNTRIES=[{name:"Argentina",leads:2503,pct:50.4,flag:"🇦🇷",color:"#4ade80"},{name:"Ecuador",leads:540,pct:10.9,flag:"🇪🇨",color:"#2D6A4F"},{name:"Colombia",leads:502,pct:10.1,flag:"🇨🇴",color:"#2D6A4F"},{name:"Perú",leads:447,pct:9.0,flag:"🇵🇪",color:"#2D6A4F"},{name:"México",leads:318,pct:6.4,flag:"🇲🇽",color:"#1A4731"},{name:"Uruguay",leads:317,pct:6.4,flag:"🇺🇾",color:"#1A4731"},{name:"Chile",leads:259,pct:5.2,flag:"🇨🇱",color:"#1A4731"},{name:"EE.UU.",leads:84,pct:1.7,flag:"🇺🇸",color:"#374151"}];
 var AGES=[{range:"18-24",male:381,female:68,total:449},{range:"25-34",male:915,female:281,total:1196},{range:"35-44",male:1015,female:322,total:1337},{range:"45-54",male:852,female:278,total:1130},{range:"55-64",male:430,female:146,total:576},{range:"65+",male:169,female:76,total:245}];
 var GENDER=[{name:"Masculino",value:3762},{name:"Femenino",value:1171}];
@@ -373,12 +377,12 @@ function buildFunnelSteps(){
   var cl=isAll?SF_TOT.clics:SF_CLICS[i];
   var en=isAll?SF_TOT.entraron:SF_ENTRARON[i];
   var steps=[
-    {icon:"📡",label:"Impresiones Meta",val:isAll?fmtNum(TOT.imp):"Solo en período completo",bar:100,color:"#374151",sub:""},
+    {icon:"📡",label:"Impresiones Meta",val:isAll?fmtNum(TOT.imp):"Solo período completo",bar:100,color:"#374151",sub:isAll?"Alcance: "+fmtNum(TOT.reach)+" personas únicas":""},
     {icon:"✅",label:"Leads Meta (pixel)",val:fmtNum(le),bar:100,color:"#1A4731",sub:isAll?"Tasa: "+(le/TOT.imp*100).toFixed(2)+"% de impresiones":""},
     {icon:"🔗",label:"Clics link WhatsApp",val:fmtNum(cl),bar:Math.round(cl/le*100),color:"#2D6A4F",sub:"Conv Lead→Clic: "+(cl/le*100).toFixed(1)+"%"},
     {icon:"💬",label:"Entraron al grupo WA",val:fmtNum(en),bar:Math.round(en/le*100),color:"#4ade80",sub:"Conv Lead→Grupo: "+(en/le*100).toFixed(1)+"% · Conv Clic→Grupo: "+(en/cl*100).toFixed(1)+"%"},
   ];
-  if(isAll)steps.push({icon:"👥",label:"Participantes activos",val:fmtNum(SF_TOT.participantes),bar:Math.round(SF_TOT.participantes/SF_TOT.entraron*100),color:"#86efac",sub:"Retención: "+((SF_TOT.participantes/SF_TOT.entraron)*100).toFixed(1)+"% del total ingresado"});
+  if(isAll)steps.push({icon:"👥",label:"Participantes activos",val:fmtNum(SF_TOT.participantes),bar:Math.round(SF_TOT.participantes/SF_TOT.entraron*100),color:"#86efac",sub:"Retención: "+(SF_TOT.participantes/SF_TOT.entraron*100).toFixed(1)+"% del total ingresado · "+SF_TOT.salieron+" se fueron"});
   var html="";
   steps.forEach(function(s){
     html+='<div class="funnel-step" style="border-left-color:'+s.color+'">';
@@ -386,7 +390,7 @@ function buildFunnelSteps(){
     html+='<div style="flex:1"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">';
     html+='<span style="font-size:10px;color:#9CA3AF;font-weight:600;text-transform:uppercase;letter-spacing:0.07em">'+s.label+'</span>';
     html+='<span style="font-size:17px;font-weight:800">'+s.val+'</span></div>';
-    if(s.sub){html+='<div style="font-size:10px;color:#9CA3AF;margin-bottom:5px">'+s.sub+'</div>';}
+    if(s.sub)html+='<div style="font-size:10px;color:#9CA3AF;margin-bottom:5px">'+s.sub+'</div>';
     html+='<div class="funnel-bar-wrap"><div class="funnel-bar" style="width:'+Math.min(s.bar,100)+'%;background:'+s.color+'"></div></div>';
     html+='</div></div>';
   });
@@ -396,24 +400,21 @@ function buildFunnelSteps(){
 function buildFunnelTable(){
   var html="";
   DAILY_LABELS.forEach(function(lbl,i){
-    var cm=DAILY_CPR[i];var cc=SF_CPR_CRM[i];
-    var isToday=DAILY_TODAY[i];
-    var bg=isToday?"background:#0f1a13;":"";
-    var sfNote=isToday?'<span style="font-size:10px;color:#9CA3AF">Pendiente</span>':'';
-    html+='<tr class="dr" style="'+bg+'">';
-    html+='<td style="font-weight:700;color:'+(isToday?"#4ade80":"#fff")+'">'+lbl+'</td>';
+    var cm=DAILY_CPR[i];var cc=SF_CPR_CRM[i];var isT=DAILY_TODAY[i];
+    html+='<tr class="dr" style="'+(isT?"background:#0f1a13;":"")+'">';
+    html+='<td style="font-weight:700;color:'+(isT?"#4ade80":"#fff")+'">'+lbl+'</td>';
     html+='<td style="font-family:monospace;color:#E5E7EB">$'+DAILY_SPEND[i].toFixed(2)+'</td>';
     html+='<td style="font-weight:700">'+fmtNum(DAILY_LEADS[i])+'</td>';
     html+='<td>'+chipHtml(cm)+'</td>';
-    html+='<td style="color:#9CA3AF">'+(isToday?sfNote:fmtNum(SF_CLICS[i]))+'</td>';
-    html+='<td style="color:#4ade80;font-weight:700">'+(isToday?sfNote:fmtNum(SF_ENTRARON[i]))+'</td>';
-    html+='<td>'+(isToday?sfNote:'<span class="chip g3">$'+cc.toFixed(3)+'</span>')+'</td>';
-    html+='<td style="color:'+(SF_PCT_ENT[i]>=75?"#4ade80":SF_PCT_ENT[i]>=65?"#86efac":"#fbbf24")+';font-weight:700">'+(isToday?sfNote:SF_PCT_ENT[i]+'%')+'</td>';
-    html+='<td style="color:'+(SF_SALIERON[i]>100?"#f87171":SF_SALIERON[i]>50?"#fbbf24":"#9CA3AF")+'">'+(isToday?sfNote:SF_SALIERON[i])+'</td>';
-    html+='<td style="color:#9CA3AF">'+(isToday?sfNote:SF_PCT_SAL[i]+'%')+'</td></tr>';
+    html+='<td style="color:#9CA3AF">'+fmtNum(SF_CLICS[i])+'</td>';
+    html+='<td style="color:#4ade80;font-weight:700">'+fmtNum(SF_ENTRARON[i])+'</td>';
+    html+='<td><span class="chip g3">$'+cc.toFixed(3)+'</span></td>';
+    html+='<td style="color:'+(SF_PCT_ENT[i]>=75?"#4ade80":SF_PCT_ENT[i]>=65?"#86efac":"#fbbf24")+';font-weight:700">'+SF_PCT_ENT[i]+'%</td>';
+    html+='<td style="color:'+(SF_SALIERON[i]>130?"#f87171":SF_SALIERON[i]>80?"#fbbf24":"#9CA3AF")+'">'+SF_SALIERON[i]+'</td>';
+    html+='<td style="color:#9CA3AF">'+SF_PCT_SAL[i]+'%</td></tr>';
   });
   var tccrm=TOT.spent/SF_TOT.entraron;
-  html+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase">TOTAL</td>';
+  html+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase">TOTAL 9–16 May</td>';
   html+='<td style="font-weight:700;font-family:monospace">$'+TOT.spent.toLocaleString("en-US",{minimumFractionDigits:2})+'</td>';
   html+='<td style="font-weight:800;font-size:13px">'+fmtNum(TOT.leads)+'</td>';
   html+='<td>'+chipHtml(TOT.cpr)+'</td>';
@@ -432,7 +433,7 @@ function buildRankingChart(s){if(charts.ranking)charts.ranking.destroy();var o=c
 function buildMetaVsWA(){if(charts.mvw)charts.mvw.destroy();var o=co();o.plugins.legend={display:false};charts.mvw=new Chart(document.getElementById("chart-meta-vs-wa"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Leads Meta",data:DAILY_LEADS,backgroundColor:"rgba(45,106,79,0.8)",borderRadius:3,maxBarThickness:18},{label:"Entraron WA",data:SF_ENTRARON,backgroundColor:"rgba(74,222,128,0.7)",borderRadius:3,maxBarThickness:18}]},options:o});}
 function buildCprCompare(){if(charts.cprc)charts.cprc.destroy();var o=co();o.plugins.legend={display:false};o.plugins.tooltip.callbacks={label:function(c){return c.dataset.label+": $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cprc=new Chart(document.getElementById("chart-cpr-compare"),{type:"line",data:{labels:SF_LABELS,datasets:[{label:"CPR Meta",data:DAILY_CPR,borderColor:"#2D6A4F",backgroundColor:"transparent",borderWidth:2,pointRadius:4,pointBackgroundColor:"#2D6A4F",tension:0.3},{label:"CPR CRM",data:SF_CPR_CRM,borderColor:"#fbbf24",backgroundColor:"rgba(251,191,36,0.08)",borderWidth:2,pointRadius:4,pointBackgroundColor:"#fbbf24",tension:0.3,fill:true}]},options:o});}
 function buildEntrada(){if(charts.ent)charts.ent.destroy();var o=co();o.plugins.tooltip.callbacks={label:function(c){return"Entrada: "+c.parsed.y.toFixed(1)+"%";}};o.scales.y.ticks.callback=function(v){return v+"%";};o.scales.y.min=0;o.scales.y.max=100;charts.ent=new Chart(document.getElementById("chart-entrada"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"% Entrada",data:SF_PCT_ENT,backgroundColor:SF_PCT_ENT.map(function(v){return v>=75?"rgba(74,222,128,0.8)":v>=65?"rgba(45,106,79,0.8)":"rgba(45,106,79,0.5)";}),borderRadius:4}]},options:o});}
-function buildSalida(){if(charts.sal)charts.sal.destroy();charts.sal=new Chart(document.getElementById("chart-salida"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Se fueron",data:SF_SALIERON,backgroundColor:SF_SALIERON.map(function(v){return v>100?"rgba(249,115,22,0.8)":v>50?"rgba(251,191,36,0.7)":"rgba(45,106,79,0.6)";}),borderRadius:4}]},options:co()});}
+function buildSalida(){if(charts.sal)charts.sal.destroy();charts.sal=new Chart(document.getElementById("chart-salida"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Se fueron",data:SF_SALIERON,backgroundColor:SF_SALIERON.map(function(v){return v>130?"rgba(249,115,22,0.8)":v>80?"rgba(251,191,36,0.7)":"rgba(45,106,79,0.6)";}),borderRadius:4}]},options:co()});}
 function buildCountriesChart(){if(charts.co)charts.co.destroy();var o=co();o.indexAxis="y";o.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:11}},border:{display:false}};charts.co=new Chart(document.getElementById("chart-countries"),{type:"bar",data:{labels:COUNTRIES.map(function(c){return c.name;}),datasets:[{data:COUNTRIES.map(function(c){return c.leads;}),label:"Leads",backgroundColor:COUNTRIES.map(function(c){return c.color;}),borderRadius:4}]},options:o});}
 function buildGenderChart(){if(charts.ge)charts.ge.destroy();charts.ge=new Chart(document.getElementById("chart-gender"),{type:"doughnut",data:{labels:["Masculino","Femenino"],datasets:[{data:[3762,1171],backgroundColor:GCOLS,borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:"#1C1C1C",borderColor:"#2D6A4F",borderWidth:1,bodyColor:"#fff",padding:10}},cutout:"62%"}});var gl=document.getElementById("gender-legend");gl.innerHTML="";[{name:"Masculino",pct:"76.3%",val:3762,col:"#2D6A4F"},{name:"Femenino",pct:"23.7%",val:1171,col:"#7c3aed"}].forEach(function(g){gl.innerHTML+='<div class="grow"><div class="gdot" style="background:'+g.col+'"></div><div class="ginfo"><div class="ghdr"><span class="gname">'+g.name+'</span><span class="gpct" style="color:'+g.col+'">'+g.pct+'</span></div><div class="gcnt">'+g.val.toLocaleString("es-AR")+' leads</div></div></div>';});}
 function buildAgesChart(){if(charts.ag)charts.ag.destroy();var o=co();o.plugins.legend={display:false};charts.ag=new Chart(document.getElementById("chart-ages"),{type:"bar",data:{labels:AGES.map(function(a){return a.range;}),datasets:[{label:"Masculino",data:AGES.map(function(a){return a.male;}),backgroundColor:"#2D6A4F",borderRadius:3,maxBarThickness:22},{label:"Femenino",data:AGES.map(function(a){return a.female;}),backgroundColor:"#7c3aed",borderRadius:3,maxBarThickness:22}]},options:o});var ac=document.getElementById("age-chips");ac.innerHTML="";AGES.forEach(function(a){ac.innerHTML+='<div class="achip"><div class="ar">'+a.range+'</div><div class="at">'+fmtNum(a.total)+'</div><div class="ap">'+Math.round(a.total/4933*100)+'%</div></div>';});}
@@ -450,8 +451,7 @@ window.addEventListener("load",function(){
   document.querySelectorAll(".db").forEach(function(btn){btn.addEventListener("click",function(){document.querySelectorAll(".db").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");currentDay=btn.dataset.day;document.getElementById("aud-warn").className=(currentDay==="all")?"warn hidden":"warn";render();});});
   buildCountriesChart();buildCountryList();buildGenderChart();buildAgesChart();
   buildMetaVsWA();buildCprCompare();buildEntrada();buildSalida();
-  buildFunnelTable();
-  render();
+  buildFunnelTable();render();
 });
 </script>
 </body>
