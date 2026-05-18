@@ -21,7 +21,6 @@ body{font-family:'Montserrat',sans-serif;background:#0A0A0A;color:#fff;min-heigh
 .filter-label{font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;margin-right:4px;}
 .db{background:none;border:1px solid #262626;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;padding:6px 13px;border-radius:20px;transition:all 0.2s;color:#9CA3AF;}
 .db:hover{border-color:#2D6A4F;color:#fff;}.db.on{background:#2D6A4F;border-color:#2D6A4F;color:#fff;}
-.db.today{border-color:#4ade80;color:#4ade80;}.db.today.on{background:#4ade80;color:#0A0A0A;}
 .kpi-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:18px;}
 .kcard{background:#141414;border:1px solid #262626;border-radius:12px;padding:16px 18px;position:relative;overflow:hidden;}
 .kcard.accent::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,#2D6A4F,transparent);}
@@ -131,7 +130,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     <button class="db"       data-day="5">14 May</button>
     <button class="db"       data-day="6">15 May</button>
     <button class="db"       data-day="7">16 May</button>
-    <button class="db today" data-day="8">17 May ⚡</button>
+    <button class="db"       data-day="8">17 May</button>
   </div>
 
   <div class="kpi-grid">
@@ -141,7 +140,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     <div class="kcard"><div class="kcard-label">Entraron WA</div><div class="kcard-value" id="k-entraron">—</div><div class="kcard-sub">Grupos WhatsApp</div></div>
     <div class="kcard amber"><div class="kcard-label">CPR CRM</div><div class="kcard-value" id="k-cprcrm">—</div><div class="kcard-sub">Por persona en grupo</div></div>
     <div class="kcard"><div class="kcard-label">Conv Lead→WA</div><div class="kcard-value" id="k-conv">—</div><div class="kcard-sub">% leads en grupo</div></div>
-    <div class="kcard"><div class="kcard-label">Retención WA</div><div class="kcard-value">87.2%</div><div class="kcard-sub">Activos / ingresados</div></div>
+    <div class="kcard"><div class="kcard-label">Retención WA</div><div class="kcard-value">86.9%</div><div class="kcard-sub">Activos / ingresados</div></div>
   </div>
 
   <div class="tabs">
@@ -152,7 +151,6 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     <button class="tb" data-tab="audience">Audiencia</button>
   </div>
 
-  <!-- RESUMEN -->
   <div class="panel on" id="panel-overview">
     <div class="grid2">
       <div class="card"><div class="card-title">Evolución CPR Meta</div><div class="card-sub">Costo por lead diario · 9–17 Mayo</div><div class="chart-wrap" style="height:180px"><canvas id="chart-cpr"></canvas></div></div>
@@ -161,7 +159,6 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     </div>
   </div>
 
-  <!-- CAMPAÑAS -->
   <div class="panel" id="panel-campaigns">
     <div style="background:#141414;border:1px solid #262626;border-radius:12px;overflow:hidden;">
       <div style="padding:12px 16px;border-bottom:1px solid #262626;display:flex;justify-content:space-between;align-items:center;">
@@ -172,7 +169,6 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     </div>
   </div>
 
-  <!-- RANKING -->
   <div class="panel" id="panel-ranking">
     <div class="grid2">
       <div class="card"><div class="card-title">Ranking CPR</div><div class="card-sub" id="rank-sub">Todo el período · menor es mejor</div><div class="chart-wrap" style="height:300px"><canvas id="chart-ranking"></canvas></div></div>
@@ -183,7 +179,6 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     </div>
   </div>
 
-  <!-- EMBUDO -->
   <div class="panel" id="panel-funnel">
     <div style="display:flex;flex-direction:column;gap:12px;">
       <div class="grid2">
@@ -211,10 +206,10 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
           <div style="margin-top:14px;">
             <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;margin-bottom:8px;">Estado grupos · SendFlow</div>
             <div class="gstat-grid">
-              <div class="gstat green"><div class="gv">10.952</div><div class="gl">Participantes</div></div>
+              <div class="gstat green"><div class="gv">11.818</div><div class="gl">Participantes</div></div>
               <div class="gstat"><div class="gv">14</div><div class="gl">Grupos</div></div>
-              <div class="gstat"><div class="gv">11</div><div class="gl">Completos</div></div>
-              <div class="gstat red"><div class="gv">880</div><div class="gl">Se fueron</div></div>
+              <div class="gstat"><div class="gv">12</div><div class="gl">Completos</div></div>
+              <div class="gstat red"><div class="gv">1.030</div><div class="gl">Se fueron</div></div>
             </div>
           </div>
         </div>
@@ -238,7 +233,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
       <div class="grid2">
         <div class="card">
           <div class="card-title">Porcentaje de entrada al grupo</div>
-          <div class="card-sub wa">% de clics que entraron · Promedio 70.6%</div>
+          <div class="card-sub wa">% de clics que entraron · Promedio 70.1%</div>
           <div class="chart-wrap" style="height:175px"><canvas id="chart-entrada"></canvas></div>
         </div>
         <div class="card">
@@ -265,7 +260,6 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     </div>
   </div>
 
-  <!-- AUDIENCIA -->
   <div class="panel" id="panel-audience">
     <div class="warn hidden" id="aud-warn">⚠️ Los datos de audiencia corresponden siempre al período completo.</div>
     <div style="display:flex;flex-direction:column;gap:12px;">
@@ -296,22 +290,22 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
 </div>
 
 <script>
-// ── META (API · 9–17 Mayo 2026) ───────────────────────────────────────────────
+// ── META (API · 9–17 Mayo 2026 · 23:19hs) ────────────────────────────────────
 var ALL_CAMPS=[
-  {name:"Test ABO [WW]",             spent:6701.29,leads:8910,cpr:0.752,imp:947865, reach:419632},
-  {name:"Escala CBO [ARG]",          spent:2121.13,leads:2413,cpr:0.879,imp:409558, reach:291722},
-  {name:"Escala CBO [Arg-Col-Ec-Pr]",spent:2152.34,leads:2392,cpr:0.900,imp:420154, reach:326604},
-  {name:"Escala CBO 2 [ARG]",        spent:3108.36,leads:3432,cpr:0.906,imp:776315, reach:534848},
-  {name:"Escala CBO [WW] Copia",     spent:768.01, leads:891, cpr:0.862,imp:154391, reach:136547},
-  {name:"Escala2 [Arg-Col-Ec-Pr]",   spent:484.37, leads:536, cpr:0.904,imp:81529,  reach:66395},
+  {name:"Test ABO [WW]",             spent:7538.92,leads:10005,cpr:0.753,imp:1078831,reach:468762},
+  {name:"Escala CBO [ARG]",          spent:2493.63,leads:2890, cpr:0.863,imp:478831, reach:328493},
+  {name:"Escala CBO [Arg-Col-Ec-Pr]",spent:2497.77,leads:2709, cpr:0.922,imp:495442, reach:383878},
+  {name:"Escala CBO 2 [ARG]",        spent:3769.31,leads:4457, cpr:0.846,imp:910285, reach:578766},
+  {name:"Escala CBO [WW] Copia",     spent:768.01, leads:891,  cpr:0.862,imp:154391, reach:136547},
+  {name:"Escala2 [Arg-Col-Ec-Pr]",   spent:564.00, leads:617,  cpr:0.914,imp:102984, reach:81981},
 ];
-var TOT={spent:15468.87,leads:18574,cpr:0.833,imp:2789812,reach:1775748};
+var TOT={spent:17631.64,leads:21569,cpr:0.817,imp:3484571,reach:2127594};
 
-var DAILY_LABELS=["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May ⚡"];
-var DAILY_SPEND= [36.60,  182.56,  220.03,  1908.90, 3876.56, 3114.81, 2743.96, 2573.64, 644.87];
-var DAILY_LEADS= [17,     157,     204,     2361,    4991,    3920,    3231,    2870,    636];
-var DAILY_CPR=   [2.153,  1.163,   1.079,   0.809,   0.777,   0.794,   0.849,   0.897,   1.014];
-var DAILY_TODAY= [false,  false,   false,   false,   false,   false,   false,   false,   true];
+var DAILY_LABELS=["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May"];
+var DAILY_SPEND= [36.60,   182.56,  220.03,  1908.90, 3876.56, 3114.81, 2743.96, 2573.64, 2986.82];
+var DAILY_LEADS= [17,      157,     204,     2361,    4991,    3920,    3231,    2870,    3631];
+var DAILY_CPR=   [2.153,   1.163,   1.079,   0.809,   0.777,   0.794,   0.849,   0.897,   0.804];
+var DAILY_TODAY= [false,   false,   false,   false,   false,   false,   false,   false,   false];
 
 var DAY_CAMPS=[
   [{name:"Test ABO [WW]",spent:29.23,leads:14,cpr:2.088},{name:"Escala CBO [ARG]",spent:7.37,leads:3,cpr:2.457}],
@@ -322,17 +316,17 @@ var DAY_CAMPS=[
   [{name:"Test ABO [WW]",spent:1194.49,leads:1810,cpr:0.660},{name:"Escala CBO [ARG]",spent:457.72,leads:495,cpr:0.924},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:454.22,leads:464,cpr:0.979},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:82.91,leads:105,cpr:0.790},{name:"Escala CBO 2 [ARG]",spent:719.70,leads:802,cpr:0.897},{name:"Escala CBO [WW] Copia",spent:205.77,leads:244,cpr:0.843}],
   [{name:"Test ABO [WW]",spent:1003.71,leads:1430,cpr:0.701},{name:"Escala CBO [ARG]",spent:445.49,leads:497,cpr:0.896},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:447.86,leads:472,cpr:0.949},{name:"Escala CBO 2 [ARG]",spent:714.04,leads:723,cpr:0.988},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:86.95,leads:109,cpr:0.798}],
   [{name:"Test ABO [WW]",spent:1037.77,leads:1363,cpr:0.761},{name:"Escala CBO [ARG]",spent:367.42,leads:326,cpr:1.127},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:360.11,leads:328,cpr:1.098},{name:"Escala CBO 2 [ARG]",spent:663.27,leads:766,cpr:0.866},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:97.65,leads:87,cpr:1.122}],
-  [{name:"Test ABO [WW]",spent:289.17,leads:327,cpr:0.884},{name:"Escala CBO [ARG]",spent:82.25,leads:59,cpr:1.394},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:83.14,leads:62,cpr:1.341},{name:"Escala CBO 2 [ARG]",spent:139.07,leads:160,cpr:0.869},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:30.22,leads:28,cpr:1.079}],
+  [{name:"Test ABO [WW]",spent:1125.13,leads:1422,cpr:0.791},{name:"Escala CBO [ARG]",spent:455.37,leads:536,cpr:0.850},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:428.17,leads:379,cpr:1.130},{name:"Escala CBO 2 [ARG]",spent:799.55,leads:1185,cpr:0.675},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:109.72,leads:109,cpr:1.007}],
 ];
 
-// ── SENDFLOW (screenshot 09:00 17/05) ────────────────────────────────────────
-var SF_TOT={clics:9731,entraron:6869,pct_entrada:70.59,salieron:880,participantes:10952,grupos:14,completos:11};
-var SF_LABELS=   ["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May ⚡"];
-var SF_CLICS=    [233,  221,  274,  1494, 2660, 1871, 1059, 1435, 317];
-var SF_ENTRARON= [147,  128,  173,  1006, 1783, 1224, 951,  954,  211];
-var SF_PCT_ENT=  [63.09,62.44,63.14,67.34,67.41,65.65,89.80,66.27,66.56];
-var SF_SALIERON= [65,   83,   55,   83,   126,  148,  150,  150,  18];
-var SF_PCT_SAL=  [34.79,31.79,10.87,9.25, 2.03, 11.44,15.72,15.72,0];
+// ── SENDFLOW (23:19 17/05/2026) ───────────────────────────────────────────────
+var SF_TOT={clics:11243,entraron:7885,pct_entrada:70.13,salieron:1030,participantes:11818,grupos:14,completos:12,disponibles:2};
+var SF_LABELS=   ["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May"];
+var SF_CLICS=    [233,  221,  274,  1494, 2660, 1971, 1059, 1435, 1829];
+var SF_ENTRARON= [147,  128,  173,  1006, 1792, 1294, 951,  951,  1227];
+var SF_PCT_ENT=  [63.09,62.44,63.14,67.34,67.41,65.65,89.65,66.27,67.09];
+var SF_SALIERON= [50,   48,   55,   83,   126,  148,  158,  160,  169];
+var SF_PCT_SAL=  [34.01,37.50,31.79,8.25, 7.03, 11.44,16.61,15.77,13.77];
 var SF_CPR_CRM=  DAILY_SPEND.map(function(s,i){return SF_ENTRARON[i]>0?s/SF_ENTRARON[i]:0;});
 
 var COUNTRIES=[{name:"Argentina",leads:2503,pct:50.4,flag:"🇦🇷",color:"#4ade80"},{name:"Ecuador",leads:540,pct:10.9,flag:"🇪🇨",color:"#2D6A4F"},{name:"Colombia",leads:502,pct:10.1,flag:"🇨🇴",color:"#2D6A4F"},{name:"Perú",leads:447,pct:9.0,flag:"🇵🇪",color:"#2D6A4F"},{name:"México",leads:318,pct:6.4,flag:"🇲🇽",color:"#1A4731"},{name:"Uruguay",leads:317,pct:6.4,flag:"🇺🇾",color:"#1A4731"},{name:"Chile",leads:259,pct:5.2,flag:"🇨🇱",color:"#1A4731"},{name:"EE.UU.",leads:84,pct:1.7,flag:"🇺🇸",color:"#374151"}];
@@ -398,9 +392,8 @@ function buildFunnelSteps(){
 function buildFunnelTable(){
   var html="";
   DAILY_LABELS.forEach(function(lbl,i){
-    var cm=DAILY_CPR[i];var cc=SF_CPR_CRM[i];var isT=DAILY_TODAY[i];
-    html+='<tr class="dr" style="'+(isT?"background:#0f1a13;":"")+'">';
-    html+='<td style="font-weight:700;color:'+(isT?"#4ade80":"#fff")+'">'+lbl+'</td>';
+    var cm=DAILY_CPR[i];var cc=SF_CPR_CRM[i];
+    html+='<tr class="dr"><td style="font-weight:700">'+lbl+'</td>';
     html+='<td style="font-family:monospace;color:#E5E7EB">$'+DAILY_SPEND[i].toFixed(2)+'</td>';
     html+='<td style="font-weight:700">'+fmtNum(DAILY_LEADS[i])+'</td>';
     html+='<td>'+chipHtml(cm)+'</td>';
@@ -425,8 +418,8 @@ function buildFunnelTable(){
   document.getElementById("funnel-tbody").innerHTML=html;
 }
 
-function buildCprChart(){if(charts.cpr)charts.cpr.destroy();var o=co();o.plugins.tooltip.callbacks={label:function(c){return"CPR: $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cpr=new Chart(document.getElementById("chart-cpr"),{type:"line",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_CPR,label:"CPR $",borderColor:"#2D6A4F",backgroundColor:"rgba(45,106,79,0.1)",borderWidth:2.5,tension:0.3,fill:true,pointRadius:5,pointBackgroundColor:DAILY_LABELS.map(function(_,i){return DAILY_TODAY[i]?"#4ade80":"#2D6A4F";}),pointBorderColor:"#0A0A0A",pointBorderWidth:2}]},options:o});}
-function buildLeadsChart(){if(charts.leads)charts.leads.destroy();charts.leads=new Chart(document.getElementById("chart-leads-daily"),{type:"bar",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_LEADS,label:"Leads Meta",backgroundColor:DAILY_LABELS.map(function(_,i){return DAILY_TODAY[i]?"rgba(74,222,128,0.8)":"rgba(45,106,79,0.8)";}),borderRadius:4}]},options:co()});}
+function buildCprChart(){if(charts.cpr)charts.cpr.destroy();var o=co();o.plugins.tooltip.callbacks={label:function(c){return"CPR: $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cpr=new Chart(document.getElementById("chart-cpr"),{type:"line",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_CPR,label:"CPR $",borderColor:"#2D6A4F",backgroundColor:"rgba(45,106,79,0.1)",borderWidth:2.5,tension:0.3,fill:true,pointRadius:5,pointBackgroundColor:DAILY_LABELS.map(function(_,i){return i===8?"#4ade80":"#2D6A4F";}),pointBorderColor:"#0A0A0A",pointBorderWidth:2}]},options:o});}
+function buildLeadsChart(){if(charts.leads)charts.leads.destroy();charts.leads=new Chart(document.getElementById("chart-leads-daily"),{type:"bar",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_LEADS,label:"Leads Meta",backgroundColor:DAILY_LEADS.map(function(v,i){return i===8?"rgba(74,222,128,0.85)":"rgba(45,106,79,0.8)";}),borderRadius:4}]},options:co()});}
 function buildRankingChart(s){if(charts.ranking)charts.ranking.destroy();var o=co();o.indexAxis="y";o.plugins.tooltip.callbacks={label:function(c){return"CPR: $"+c.parsed.x.toFixed(3);}};o.scales.x={min:0,max:1.1,grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10},callback:function(v){return"$"+v.toFixed(2);}},border:{display:false}};o.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:10}},border:{display:false}};charts.ranking=new Chart(document.getElementById("chart-ranking"),{type:"bar",data:{labels:s.map(function(c){return c.name;}),datasets:[{data:s.map(function(c){return c.cpr;}),label:"CPR $",backgroundColor:s.map(function(_,i){return rankColor(i);}),borderRadius:4}]},options:o});}
 function buildMetaVsWA(){if(charts.mvw)charts.mvw.destroy();var o=co();o.plugins.legend={display:false};charts.mvw=new Chart(document.getElementById("chart-meta-vs-wa"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Leads Meta",data:DAILY_LEADS,backgroundColor:"rgba(45,106,79,0.8)",borderRadius:3,maxBarThickness:16},{label:"Entraron WA",data:SF_ENTRARON,backgroundColor:"rgba(74,222,128,0.7)",borderRadius:3,maxBarThickness:16}]},options:o});}
 function buildCprCompare(){if(charts.cprc)charts.cprc.destroy();var o=co();o.plugins.legend={display:false};o.plugins.tooltip.callbacks={label:function(c){return c.dataset.label+": $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cprc=new Chart(document.getElementById("chart-cpr-compare"),{type:"line",data:{labels:SF_LABELS,datasets:[{label:"CPR Meta",data:DAILY_CPR,borderColor:"#2D6A4F",backgroundColor:"transparent",borderWidth:2,pointRadius:4,pointBackgroundColor:"#2D6A4F",tension:0.3},{label:"CPR CRM",data:SF_CPR_CRM,borderColor:"#fbbf24",backgroundColor:"rgba(251,191,36,0.08)",borderWidth:2,pointRadius:4,pointBackgroundColor:"#fbbf24",tension:0.3,fill:true}]},options:o});}
