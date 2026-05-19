@@ -21,6 +21,7 @@ body{font-family:'Montserrat',sans-serif;background:#0A0A0A;color:#fff;min-heigh
 .filter-label{font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;margin-right:4px;}
 .db{background:none;border:1px solid #262626;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;padding:6px 13px;border-radius:20px;transition:all 0.2s;color:#9CA3AF;}
 .db:hover{border-color:#2D6A4F;color:#fff;}.db.on{background:#2D6A4F;border-color:#2D6A4F;color:#fff;}
+.db.today{border-color:#4ade80;color:#4ade80;}.db.today.on{background:#4ade80;color:#0A0A0A;}
 .kpi-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:18px;}
 .kcard{background:#141414;border:1px solid #262626;border-radius:12px;padding:16px 18px;position:relative;overflow:hidden;}
 .kcard.accent::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,#2D6A4F,transparent);}
@@ -131,6 +132,8 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     <button class="db"       data-day="6">15 May</button>
     <button class="db"       data-day="7">16 May</button>
     <button class="db"       data-day="8">17 May</button>
+    <button class="db"       data-day="9">18 May</button>
+    <button class="db today" data-day="10">19 May ⚡</button>
   </div>
 
   <div class="kpi-grid">
@@ -140,7 +143,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     <div class="kcard"><div class="kcard-label">Entraron WA</div><div class="kcard-value" id="k-entraron">—</div><div class="kcard-sub">Grupos WhatsApp</div></div>
     <div class="kcard amber"><div class="kcard-label">CPR CRM</div><div class="kcard-value" id="k-cprcrm">—</div><div class="kcard-sub">Por persona en grupo</div></div>
     <div class="kcard"><div class="kcard-label">Conv Lead→WA</div><div class="kcard-value" id="k-conv">—</div><div class="kcard-sub">% leads en grupo</div></div>
-    <div class="kcard"><div class="kcard-label">Retención WA</div><div class="kcard-value">86.9%</div><div class="kcard-sub">Activos / ingresados</div></div>
+    <div class="kcard"><div class="kcard-label">Retención WA</div><div class="kcard-value">86.2%</div><div class="kcard-sub">Activos / ingresados</div></div>
   </div>
 
   <div class="tabs">
@@ -153,7 +156,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
 
   <div class="panel on" id="panel-overview">
     <div class="grid2">
-      <div class="card"><div class="card-title">Evolución CPR Meta</div><div class="card-sub">Costo por lead diario · 9–17 Mayo</div><div class="chart-wrap" style="height:180px"><canvas id="chart-cpr"></canvas></div></div>
+      <div class="card"><div class="card-title">Evolución CPR Meta</div><div class="card-sub">Costo por lead diario · 9–19 Mayo</div><div class="chart-wrap" style="height:180px"><canvas id="chart-cpr"></canvas></div></div>
       <div class="card"><div class="card-title">Leads Diarios</div><div class="card-sub">Conversiones Meta por día</div><div class="chart-wrap" style="height:180px"><canvas id="chart-leads-daily"></canvas></div></div>
       <div class="card span2"><div class="card-title" id="dist-title">Distribución · Todo el período</div><div class="mini-grid" id="mini-camps"></div></div>
     </div>
@@ -162,7 +165,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
   <div class="panel" id="panel-campaigns">
     <div style="background:#141414;border:1px solid #262626;border-radius:12px;overflow:hidden;">
       <div style="padding:12px 16px;border-bottom:1px solid #262626;display:flex;justify-content:space-between;align-items:center;">
-        <span style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;" id="camp-header">Campañas · 9–17 Mayo 2026</span>
+        <span style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;letter-spacing:0.1em;" id="camp-header">Campañas · 9–19 Mayo 2026</span>
         <span style="font-size:11px;color:#fbbf24;" id="camp-note" class="hidden">Métricas completas en "Todo el período"</span>
       </div>
       <div class="tbl-wrap"><table><thead id="camp-thead"></thead><tbody id="camp-tbody"></tbody></table></div>
@@ -184,7 +187,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
       <div class="grid2">
         <div class="card">
           <div class="card-title">Embudo completo</div>
-          <div class="card-sub wa">Meta Ads → SendFlow → Grupos WhatsApp · 9–17 Mayo</div>
+          <div class="card-sub wa">Meta Ads → SendFlow → Grupos WhatsApp · 9–19 Mayo</div>
           <div id="funnel-steps"></div>
         </div>
         <div class="card">
@@ -206,10 +209,10 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
           <div style="margin-top:14px;">
             <div style="font-size:10px;color:#9CA3AF;text-transform:uppercase;font-weight:600;margin-bottom:8px;">Estado grupos · SendFlow</div>
             <div class="gstat-grid">
-              <div class="gstat green"><div class="gv">11.818</div><div class="gl">Participantes</div></div>
-              <div class="gstat"><div class="gv">14</div><div class="gl">Grupos</div></div>
-              <div class="gstat"><div class="gv">12</div><div class="gl">Completos</div></div>
-              <div class="gstat red"><div class="gv">1.030</div><div class="gl">Se fueron</div></div>
+              <div class="gstat green"><div class="gv">13.464</div><div class="gl">Participantes</div></div>
+              <div class="gstat"><div class="gv">29</div><div class="gl">Grupos</div></div>
+              <div class="gstat"><div class="gv">14</div><div class="gl">Completos</div></div>
+              <div class="gstat red"><div class="gv">1.383</div><div class="gl">Se fueron</div></div>
             </div>
           </div>
         </div>
@@ -218,7 +221,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
       <div class="grid2">
         <div class="card">
           <div class="card-title">Meta Leads vs Entraron al grupo</div>
-          <div class="card-sub wa">Comparativa diaria · 9–17 Mayo</div>
+          <div class="card-sub wa">Comparativa diaria · 9–19 Mayo</div>
           <div class="aleg"><span><span class="dot" style="background:#2D6A4F"></span>Leads Meta</span><span><span class="dot" style="background:#4ade80"></span>Entraron WA</span></div>
           <div class="chart-wrap" style="height:185px"><canvas id="chart-meta-vs-wa"></canvas></div>
         </div>
@@ -233,7 +236,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
       <div class="grid2">
         <div class="card">
           <div class="card-title">Porcentaje de entrada al grupo</div>
-          <div class="card-sub wa">% de clics que entraron · Promedio 70.1%</div>
+          <div class="card-sub wa">% de clics que entraron · Promedio 69.5%</div>
           <div class="chart-wrap" style="height:175px"><canvas id="chart-entrada"></canvas></div>
         </div>
         <div class="card">
@@ -245,7 +248,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
 
       <div class="card">
         <div class="card-title">Resumen diario completo · Meta + SendFlow</div>
-        <div class="card-sub wa">Embudo día a día · 9–17 Mayo 2026</div>
+        <div class="card-sub wa">Embudo día a día · 9–19 Mayo 2026</div>
         <div class="tbl-wrap">
           <table>
             <thead><tr style="background:#111">
@@ -265,7 +268,7 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
     <div style="display:flex;flex-direction:column;gap:12px;">
       <div class="card">
         <div class="card-title">Países · Origen de Leads</div>
-        <div class="card-sub">Leads con país identificado · 9–17 Mayo</div>
+        <div class="card-sub">Leads con país identificado · 9–19 Mayo</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
           <div class="chart-wrap" style="height:210px"><canvas id="chart-countries"></canvas></div>
           <div id="country-list"></div>
@@ -290,22 +293,22 @@ tr.tr{border-top:2px solid #2D6A4F;background:#0f1a14;}tr.tr td{padding:12px 13p
 </div>
 
 <script>
-// ── META (API · 9–17 Mayo 2026 · 23:19hs) ────────────────────────────────────
+// ── META (API · 9–19 Mayo 2026 · 09:10hs) ────────────────────────────────────
 var ALL_CAMPS=[
-  {name:"Test ABO [WW]",             spent:7538.92,leads:10005,cpr:0.753,imp:1078831,reach:468762},
-  {name:"Escala CBO [ARG]",          spent:2493.63,leads:2890, cpr:0.863,imp:478831, reach:328493},
-  {name:"Escala CBO [Arg-Col-Ec-Pr]",spent:2497.77,leads:2709, cpr:0.922,imp:495442, reach:383878},
-  {name:"Escala CBO 2 [ARG]",        spent:3769.31,leads:4457, cpr:0.846,imp:910285, reach:578766},
-  {name:"Escala CBO [WW] Copia",     spent:768.01, leads:891,  cpr:0.862,imp:154391, reach:136547},
-  {name:"Escala2 [Arg-Col-Ec-Pr]",   spent:564.00, leads:617,  cpr:0.914,imp:102984, reach:81981},
+  {name:"Test ABO [WW]",             spent:8947.50, leads:12399,cpr:0.722,imp:1337945,reach:578964},
+  {name:"Escala CBO [ARG]",          spent:3051.06, leads:3835, cpr:0.795,imp:639258, reach:410880},
+  {name:"Escala CBO [Arg-Col-Ec-Pr]",spent:3079.39, leads:3454, cpr:0.892,imp:652341, reach:490555},
+  {name:"Escala CBO 2 [ARG]",        spent:4736.55, leads:6137, cpr:0.772,imp:1195632,reach:684112},
+  {name:"Escala CBO [WW] Copia",     spent:768.01,  leads:891,  cpr:0.862,imp:154391, reach:136547},
+  {name:"Escala2 [Arg-Col-Ec-Pr]",   spent:700.97,  leads:789,  cpr:0.888,imp:138623, reach:103409},
 ];
-var TOT={spent:17631.64,leads:21569,cpr:0.817,imp:3484571,reach:2127594};
+var TOT={spent:21283.48,leads:27505,cpr:0.774,imp:4118190,reach:2404467};
 
-var DAILY_LABELS=["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May"];
-var DAILY_SPEND= [36.60,   182.56,  220.03,  1908.90, 3876.56, 3114.81, 2743.96, 2573.64, 2986.82];
-var DAILY_LEADS= [17,      157,     204,     2361,    4991,    3920,    3231,    2870,    3631];
-var DAILY_CPR=   [2.153,   1.163,   1.079,   0.809,   0.777,   0.794,   0.849,   0.897,   0.804];
-var DAILY_TODAY= [false,   false,   false,   false,   false,   false,   false,   false,   false];
+var DAILY_LABELS=["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May","18 May","19 May ⚡"];
+var DAILY_SPEND= [36.60,  182.56,  220.03,  1908.90, 3876.56, 3114.81, 2743.96, 2573.64, 2986.82, 2784.15, 868.45];
+var DAILY_LEADS= [17,     157,     204,     2361,    4991,    3920,    3231,    2870,    3631,    4557,    1379];
+var DAILY_CPR=   [2.153,  1.163,   1.079,   0.809,   0.777,   0.794,   0.849,   0.897,   0.804,   0.611,   0.630];
+var DAILY_TODAY= [false,  false,   false,   false,   false,   false,   false,   false,   false,   false,   true];
 
 var DAY_CAMPS=[
   [{name:"Test ABO [WW]",spent:29.23,leads:14,cpr:2.088},{name:"Escala CBO [ARG]",spent:7.37,leads:3,cpr:2.457}],
@@ -317,16 +320,18 @@ var DAY_CAMPS=[
   [{name:"Test ABO [WW]",spent:1003.71,leads:1430,cpr:0.701},{name:"Escala CBO [ARG]",spent:445.49,leads:497,cpr:0.896},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:447.86,leads:472,cpr:0.949},{name:"Escala CBO 2 [ARG]",spent:714.04,leads:723,cpr:0.988},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:86.95,leads:109,cpr:0.798}],
   [{name:"Test ABO [WW]",spent:1037.77,leads:1363,cpr:0.761},{name:"Escala CBO [ARG]",spent:367.42,leads:326,cpr:1.127},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:360.11,leads:328,cpr:1.098},{name:"Escala CBO 2 [ARG]",spent:663.27,leads:766,cpr:0.866},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:97.65,leads:87,cpr:1.122}],
   [{name:"Test ABO [WW]",spent:1125.13,leads:1422,cpr:0.791},{name:"Escala CBO [ARG]",spent:455.37,leads:536,cpr:0.850},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:428.17,leads:379,cpr:1.130},{name:"Escala CBO 2 [ARG]",spent:799.55,leads:1185,cpr:0.675},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:109.72,leads:109,cpr:1.007}],
+  [{name:"Test ABO [WW]",spent:1079.82,leads:1845,cpr:0.585},{name:"Escala CBO [ARG]",spent:425.53,leads:757,cpr:0.562},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:437.26,leads:563,cpr:0.777},{name:"Escala CBO 2 [ARG]",spent:741.81,leads:1271,cpr:0.584},{name:"Escala2 [Arg-Col-Ec-Pr]",spent:99.73,leads:121,cpr:0.824}],
+  [{name:"Test ABO [WW]",spent:374.33,leads:629,cpr:0.595},{name:"Escala CBO [ARG]",spent:131.66,leads:188,cpr:0.700},{name:"Escala CBO [Arg-Col-Ec-Pr]",spent:144.71,leads:182,cpr:0.795},{name:"Escala CBO 2 [ARG]",spent:217.75,leads:380,cpr:0.573}],
 ];
 
-// ── SENDFLOW (23:19 17/05/2026) ───────────────────────────────────────────────
-var SF_TOT={clics:11243,entraron:7885,pct_entrada:70.13,salieron:1030,participantes:11818,grupos:14,completos:12,disponibles:2};
-var SF_LABELS=   ["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May"];
-var SF_CLICS=    [233,  221,  274,  1494, 2660, 1971, 1059, 1435, 1829];
-var SF_ENTRARON= [147,  128,  173,  1006, 1792, 1294, 951,  951,  1227];
-var SF_PCT_ENT=  [63.09,62.44,63.14,67.34,67.41,65.65,89.65,66.27,67.09];
-var SF_SALIERON= [50,   48,   55,   83,   126,  148,  158,  160,  169];
-var SF_PCT_SAL=  [34.01,37.50,31.79,8.25, 7.03, 11.44,16.61,15.77,13.77];
+// ── SENDFLOW (09:10 19/05/2026) ───────────────────────────────────────────────
+var SF_TOT={clics:14176,entraron:9847,pct_entrada:69.46,salieron:1383,participantes:13464,grupos:29,completos:14,disponibles:15};
+var SF_LABELS=   ["9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May","18 May","19 May ⚡"];
+var SF_CLICS=    [233,  221,  274,  1494, 2660, 1971, 1059, 1435, 1902, 2276, 554];
+var SF_ENTRARON= [147,  128,  173,  1006, 1792, 1294, 951,  951,  1278, 1542, 359];
+var SF_PCT_ENT=  [63.09,62.44,63.14,67.34,67.41,65.65,89.65,66.27,67.19,66.43,68.32];
+var SF_SALIERON= [50,   48,   55,   83,   125,  148,  158,  150,  172,  515,  35];
+var SF_PCT_SAL=  [34.01,37.50,31.79,8.25, 7.03, 11.44,16.61,15.77,13.46,29.83,5.77];
 var SF_CPR_CRM=  DAILY_SPEND.map(function(s,i){return SF_ENTRARON[i]>0?s/SF_ENTRARON[i]:0;});
 
 var COUNTRIES=[{name:"Argentina",leads:2503,pct:50.4,flag:"🇦🇷",color:"#4ade80"},{name:"Ecuador",leads:540,pct:10.9,flag:"🇪🇨",color:"#2D6A4F"},{name:"Colombia",leads:502,pct:10.1,flag:"🇨🇴",color:"#2D6A4F"},{name:"Perú",leads:447,pct:9.0,flag:"🇵🇪",color:"#2D6A4F"},{name:"México",leads:318,pct:6.4,flag:"🇲🇽",color:"#1A4731"},{name:"Uruguay",leads:317,pct:6.4,flag:"🇺🇾",color:"#1A4731"},{name:"Chile",leads:259,pct:5.2,flag:"🇨🇱",color:"#1A4731"},{name:"EE.UU.",leads:84,pct:1.7,flag:"🇺🇸",color:"#374151"}];
@@ -392,8 +397,9 @@ function buildFunnelSteps(){
 function buildFunnelTable(){
   var html="";
   DAILY_LABELS.forEach(function(lbl,i){
-    var cm=DAILY_CPR[i];var cc=SF_CPR_CRM[i];
-    html+='<tr class="dr"><td style="font-weight:700">'+lbl+'</td>';
+    var cm=DAILY_CPR[i];var cc=SF_CPR_CRM[i];var isT=DAILY_TODAY[i];
+    html+='<tr class="dr" style="'+(isT?"background:#0f1a13;":"")+'">';
+    html+='<td style="font-weight:700;color:'+(isT?"#4ade80":"#fff")+'">'+lbl+'</td>';
     html+='<td style="font-family:monospace;color:#E5E7EB">$'+DAILY_SPEND[i].toFixed(2)+'</td>';
     html+='<td style="font-weight:700">'+fmtNum(DAILY_LEADS[i])+'</td>';
     html+='<td>'+chipHtml(cm)+'</td>';
@@ -401,11 +407,11 @@ function buildFunnelTable(){
     html+='<td style="color:#4ade80;font-weight:700">'+fmtNum(SF_ENTRARON[i])+'</td>';
     html+='<td><span class="chip g3">$'+cc.toFixed(3)+'</span></td>';
     html+='<td style="color:'+(SF_PCT_ENT[i]>=75?"#4ade80":SF_PCT_ENT[i]>=65?"#86efac":"#fbbf24")+';font-weight:700">'+SF_PCT_ENT[i]+'%</td>';
-    html+='<td style="color:'+(SF_SALIERON[i]>130?"#f87171":SF_SALIERON[i]>80?"#fbbf24":"#9CA3AF")+'">'+SF_SALIERON[i]+'</td>';
+    html+='<td style="color:'+(SF_SALIERON[i]>400?"#f87171":SF_SALIERON[i]>130?"#fbbf24":"#9CA3AF")+'">'+SF_SALIERON[i]+'</td>';
     html+='<td style="color:#9CA3AF">'+SF_PCT_SAL[i]+'%</td></tr>';
   });
   var tccrm=TOT.spent/SF_TOT.entraron;
-  html+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase">TOTAL 9–17 May</td>';
+  html+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase">TOTAL 9–19 May</td>';
   html+='<td style="font-weight:700;font-family:monospace">$'+TOT.spent.toLocaleString("en-US",{minimumFractionDigits:2})+'</td>';
   html+='<td style="font-weight:800;font-size:13px">'+fmtNum(TOT.leads)+'</td>';
   html+='<td>'+chipHtml(TOT.cpr)+'</td>';
@@ -418,19 +424,19 @@ function buildFunnelTable(){
   document.getElementById("funnel-tbody").innerHTML=html;
 }
 
-function buildCprChart(){if(charts.cpr)charts.cpr.destroy();var o=co();o.plugins.tooltip.callbacks={label:function(c){return"CPR: $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cpr=new Chart(document.getElementById("chart-cpr"),{type:"line",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_CPR,label:"CPR $",borderColor:"#2D6A4F",backgroundColor:"rgba(45,106,79,0.1)",borderWidth:2.5,tension:0.3,fill:true,pointRadius:5,pointBackgroundColor:DAILY_LABELS.map(function(_,i){return i===8?"#4ade80":"#2D6A4F";}),pointBorderColor:"#0A0A0A",pointBorderWidth:2}]},options:o});}
-function buildLeadsChart(){if(charts.leads)charts.leads.destroy();charts.leads=new Chart(document.getElementById("chart-leads-daily"),{type:"bar",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_LEADS,label:"Leads Meta",backgroundColor:DAILY_LEADS.map(function(v,i){return i===8?"rgba(74,222,128,0.85)":"rgba(45,106,79,0.8)";}),borderRadius:4}]},options:co()});}
+function buildCprChart(){if(charts.cpr)charts.cpr.destroy();var o=co();o.plugins.tooltip.callbacks={label:function(c){return"CPR: $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cpr=new Chart(document.getElementById("chart-cpr"),{type:"line",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_CPR,label:"CPR $",borderColor:"#2D6A4F",backgroundColor:"rgba(45,106,79,0.1)",borderWidth:2.5,tension:0.3,fill:true,pointRadius:DAILY_TODAY.map(function(_,i){return DAILY_TODAY[i]?7:5;}),pointBackgroundColor:DAILY_LABELS.map(function(_,i){return DAILY_TODAY[i]?"#4ade80":"#2D6A4F";}),pointBorderColor:"#0A0A0A",pointBorderWidth:2}]},options:o});}
+function buildLeadsChart(){if(charts.leads)charts.leads.destroy();charts.leads=new Chart(document.getElementById("chart-leads-daily"),{type:"bar",data:{labels:DAILY_LABELS,datasets:[{data:DAILY_LEADS,label:"Leads Meta",backgroundColor:DAILY_LEADS.map(function(v,i){return DAILY_TODAY[i]?"rgba(74,222,128,0.85)":"rgba(45,106,79,0.8)";}),borderRadius:4}]},options:co()});}
 function buildRankingChart(s){if(charts.ranking)charts.ranking.destroy();var o=co();o.indexAxis="y";o.plugins.tooltip.callbacks={label:function(c){return"CPR: $"+c.parsed.x.toFixed(3);}};o.scales.x={min:0,max:1.1,grid:{color:"#262626",drawTicks:false},ticks:{color:"#9CA3AF",font:{family:"Montserrat",size:10},callback:function(v){return"$"+v.toFixed(2);}},border:{display:false}};o.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:10}},border:{display:false}};charts.ranking=new Chart(document.getElementById("chart-ranking"),{type:"bar",data:{labels:s.map(function(c){return c.name;}),datasets:[{data:s.map(function(c){return c.cpr;}),label:"CPR $",backgroundColor:s.map(function(_,i){return rankColor(i);}),borderRadius:4}]},options:o});}
-function buildMetaVsWA(){if(charts.mvw)charts.mvw.destroy();var o=co();o.plugins.legend={display:false};charts.mvw=new Chart(document.getElementById("chart-meta-vs-wa"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Leads Meta",data:DAILY_LEADS,backgroundColor:"rgba(45,106,79,0.8)",borderRadius:3,maxBarThickness:16},{label:"Entraron WA",data:SF_ENTRARON,backgroundColor:"rgba(74,222,128,0.7)",borderRadius:3,maxBarThickness:16}]},options:o});}
-function buildCprCompare(){if(charts.cprc)charts.cprc.destroy();var o=co();o.plugins.legend={display:false};o.plugins.tooltip.callbacks={label:function(c){return c.dataset.label+": $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cprc=new Chart(document.getElementById("chart-cpr-compare"),{type:"line",data:{labels:SF_LABELS,datasets:[{label:"CPR Meta",data:DAILY_CPR,borderColor:"#2D6A4F",backgroundColor:"transparent",borderWidth:2,pointRadius:4,pointBackgroundColor:"#2D6A4F",tension:0.3},{label:"CPR CRM",data:SF_CPR_CRM,borderColor:"#fbbf24",backgroundColor:"rgba(251,191,36,0.08)",borderWidth:2,pointRadius:4,pointBackgroundColor:"#fbbf24",tension:0.3,fill:true}]},options:o});}
+function buildMetaVsWA(){if(charts.mvw)charts.mvw.destroy();var o=co();o.plugins.legend={display:false};charts.mvw=new Chart(document.getElementById("chart-meta-vs-wa"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Leads Meta",data:DAILY_LEADS,backgroundColor:"rgba(45,106,79,0.8)",borderRadius:3,maxBarThickness:13},{label:"Entraron WA",data:SF_ENTRARON,backgroundColor:"rgba(74,222,128,0.7)",borderRadius:3,maxBarThickness:13}]},options:o});}
+function buildCprCompare(){if(charts.cprc)charts.cprc.destroy();var o=co();o.plugins.legend={display:false};o.plugins.tooltip.callbacks={label:function(c){return c.dataset.label+": $"+c.parsed.y.toFixed(3);}};o.scales.y.ticks.callback=function(v){return"$"+v.toFixed(2);};charts.cprc=new Chart(document.getElementById("chart-cpr-compare"),{type:"line",data:{labels:SF_LABELS,datasets:[{label:"CPR Meta",data:DAILY_CPR,borderColor:"#2D6A4F",backgroundColor:"transparent",borderWidth:2,pointRadius:3,pointBackgroundColor:"#2D6A4F",tension:0.3},{label:"CPR CRM",data:SF_CPR_CRM,borderColor:"#fbbf24",backgroundColor:"rgba(251,191,36,0.08)",borderWidth:2,pointRadius:3,pointBackgroundColor:"#fbbf24",tension:0.3,fill:true}]},options:o});}
 function buildEntrada(){if(charts.ent)charts.ent.destroy();var o=co();o.plugins.tooltip.callbacks={label:function(c){return"Entrada: "+c.parsed.y.toFixed(1)+"%";}};o.scales.y.ticks.callback=function(v){return v+"%";};o.scales.y.min=0;o.scales.y.max=100;charts.ent=new Chart(document.getElementById("chart-entrada"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"% Entrada",data:SF_PCT_ENT,backgroundColor:SF_PCT_ENT.map(function(v){return v>=75?"rgba(74,222,128,0.8)":v>=65?"rgba(45,106,79,0.8)":"rgba(45,106,79,0.5)";}),borderRadius:4}]},options:o});}
-function buildSalida(){if(charts.sal)charts.sal.destroy();charts.sal=new Chart(document.getElementById("chart-salida"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Se fueron",data:SF_SALIERON,backgroundColor:SF_SALIERON.map(function(v){return v>130?"rgba(249,115,22,0.8)":v>80?"rgba(251,191,36,0.7)":"rgba(45,106,79,0.6)";}),borderRadius:4}]},options:co()});}
+function buildSalida(){if(charts.sal)charts.sal.destroy();charts.sal=new Chart(document.getElementById("chart-salida"),{type:"bar",data:{labels:SF_LABELS,datasets:[{label:"Se fueron",data:SF_SALIERON,backgroundColor:SF_SALIERON.map(function(v){return v>400?"rgba(249,115,22,0.9)":v>130?"rgba(251,191,36,0.7)":"rgba(45,106,79,0.6)";}),borderRadius:4}]},options:co()});}
 function buildCountriesChart(){if(charts.co)charts.co.destroy();var o=co();o.indexAxis="y";o.scales.y={grid:{display:false},ticks:{color:"#E5E7EB",font:{family:"Montserrat",size:11}},border:{display:false}};charts.co=new Chart(document.getElementById("chart-countries"),{type:"bar",data:{labels:COUNTRIES.map(function(c){return c.name;}),datasets:[{data:COUNTRIES.map(function(c){return c.leads;}),label:"Leads",backgroundColor:COUNTRIES.map(function(c){return c.color;}),borderRadius:4}]},options:o});}
 function buildGenderChart(){if(charts.ge)charts.ge.destroy();charts.ge=new Chart(document.getElementById("chart-gender"),{type:"doughnut",data:{labels:["Masculino","Femenino"],datasets:[{data:[3762,1171],backgroundColor:GCOLS,borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:"#1C1C1C",borderColor:"#2D6A4F",borderWidth:1,bodyColor:"#fff",padding:10}},cutout:"62%"}});var gl=document.getElementById("gender-legend");gl.innerHTML="";[{name:"Masculino",pct:"76.3%",val:3762,col:"#2D6A4F"},{name:"Femenino",pct:"23.7%",val:1171,col:"#7c3aed"}].forEach(function(g){gl.innerHTML+='<div class="grow"><div class="gdot" style="background:'+g.col+'"></div><div class="ginfo"><div class="ghdr"><span class="gname">'+g.name+'</span><span class="gpct" style="color:'+g.col+'">'+g.pct+'</span></div><div class="gcnt">'+g.val.toLocaleString("es-AR")+' leads</div></div></div>';});}
 function buildAgesChart(){if(charts.ag)charts.ag.destroy();var o=co();o.plugins.legend={display:false};charts.ag=new Chart(document.getElementById("chart-ages"),{type:"bar",data:{labels:AGES.map(function(a){return a.range;}),datasets:[{label:"Masculino",data:AGES.map(function(a){return a.male;}),backgroundColor:"#2D6A4F",borderRadius:3,maxBarThickness:22},{label:"Femenino",data:AGES.map(function(a){return a.female;}),backgroundColor:"#7c3aed",borderRadius:3,maxBarThickness:22}]},options:o});var ac=document.getElementById("age-chips");ac.innerHTML="";AGES.forEach(function(a){ac.innerHTML+='<div class="achip"><div class="ar">'+a.range+'</div><div class="at">'+fmtNum(a.total)+'</div><div class="ap">'+Math.round(a.total/4933*100)+'%</div></div>';});}
 function buildCountryList(){var cl=document.getElementById("country-list");cl.innerHTML="";COUNTRIES.forEach(function(c,i){cl.innerHTML+='<div class="crow"><span class="cflag">'+c.flag+'</span><div class="cinfo"><div class="chdr"><span class="cname">'+c.name+'</span><span class="cleads" style="color:'+(i===0?"#4ade80":"#E5E7EB")+'">'+fmtNum(c.leads)+'</span></div><div class="cbar-bg"><div class="cbar" style="width:'+c.pct+'%;background:'+(i===0?"#4ade80":i<3?"#2D6A4F":"#1A4731")+'"></div></div></div><span class="cpct">'+c.pct+'%</span></div>';});}
 function updateMiniCards(){var isAll=currentDay==="all";var idx=parseInt(currentDay);var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);var tl=isAll?TOT.leads:DAILY_LEADS[idx];document.getElementById("dist-title").textContent="Distribución · "+(isAll?"Todo el período":DAILY_LABELS[idx]);var mc=document.getElementById("mini-camps");mc.innerHTML="";if(!camps.length){mc.innerHTML='<span style="color:#9CA3AF;font-size:12px">Sin campañas</span>';return;}camps.forEach(function(c){var p=((c.leads/tl)*100).toFixed(1);mc.innerHTML+='<div class="mini-card"><div class="mini-name">'+c.name+'</div><div class="mini-row"><span class="mini-leads">'+fmtNum(c.leads)+'</span>'+chipHtml(c.cpr)+'</div><div class="mini-bar-bg"><div class="mini-bar-fill" style="width:'+p+'%"></div></div><div class="mini-foot">'+p+'% · $'+c.spent.toFixed(0)+' USD</div></div>';});}
-function updateCampsTable(){var isAll=currentDay==="all";var idx=parseInt(currentDay);var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);document.getElementById("camp-header").textContent="Campañas · "+(isAll?"9–17 Mayo 2026":DAILY_LABELS[idx]);document.getElementById("camp-note").className=isAll?"hidden":"";var cols=["Campaña","Gasto","Leads","CPR"];if(isAll)cols=cols.concat(["Impresiones","Alcance","Estado"]);document.getElementById("camp-thead").innerHTML="<tr>"+cols.map(function(h){return"<th>"+h+"</th>";}).join("")+"</tr>";var tbody=document.getElementById("camp-tbody");if(!camps.length){tbody.innerHTML='<tr><td colspan="4" style="padding:24px;color:#9CA3AF;text-align:center">Sin datos</td></tr>';return;}var rows="";camps.forEach(function(c){rows+='<tr class="dr"><td style="color:#fff;font-weight:600">'+c.name+'</td><td style="font-family:monospace;color:#E5E7EB">$'+c.spent.toFixed(2)+'</td><td style="font-weight:700">'+fmtNum(c.leads)+'</td><td>'+chipHtml(c.cpr)+'</td>'+(isAll?'<td style="color:#9CA3AF">'+fmtNum(c.imp)+'</td><td style="color:#9CA3AF">'+fmtNum(c.reach)+'</td><td style="color:#4ade80;font-size:11px">● Activa</td>':'')+' </tr>';});var ts=camps.reduce(function(a,c){return{spent:a.spent+c.spent,leads:a.leads+c.leads};},{spent:0,leads:0});var tc=ts.leads>0?ts.spent/ts.leads:0;rows+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase">TOTAL</td><td style="font-weight:700;font-family:monospace">$'+ts.spent.toFixed(2)+'</td><td style="font-weight:800;font-size:13px">'+fmtNum(ts.leads)+'</td><td>'+chipHtml(tc)+'</td>'+(isAll?'<td style="font-weight:700">'+fmtNum(TOT.imp)+'</td><td style="font-weight:700">'+fmtNum(TOT.reach)+'</td><td></td>':'')+' </tr>';tbody.innerHTML=rows;}
+function updateCampsTable(){var isAll=currentDay==="all";var idx=parseInt(currentDay);var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);document.getElementById("camp-header").textContent="Campañas · "+(isAll?"9–19 Mayo 2026":DAILY_LABELS[idx]);document.getElementById("camp-note").className=isAll?"hidden":"";var cols=["Campaña","Gasto","Leads","CPR"];if(isAll)cols=cols.concat(["Impresiones","Alcance","Estado"]);document.getElementById("camp-thead").innerHTML="<tr>"+cols.map(function(h){return"<th>"+h+"</th>";}).join("")+"</tr>";var tbody=document.getElementById("camp-tbody");if(!camps.length){tbody.innerHTML='<tr><td colspan="4" style="padding:24px;color:#9CA3AF;text-align:center">Sin datos</td></tr>';return;}var rows="";camps.forEach(function(c){rows+='<tr class="dr"><td style="color:#fff;font-weight:600">'+c.name+'</td><td style="font-family:monospace;color:#E5E7EB">$'+c.spent.toFixed(2)+'</td><td style="font-weight:700">'+fmtNum(c.leads)+'</td><td>'+chipHtml(c.cpr)+'</td>'+(isAll?'<td style="color:#9CA3AF">'+fmtNum(c.imp)+'</td><td style="color:#9CA3AF">'+fmtNum(c.reach)+'</td><td style="color:#4ade80;font-size:11px">● Activa</td>':'')+' </tr>';});var ts=camps.reduce(function(a,c){return{spent:a.spent+c.spent,leads:a.leads+c.leads};},{spent:0,leads:0});var tc=ts.leads>0?ts.spent/ts.leads:0;rows+='<tr class="tr"><td style="color:#2D6A4F;font-weight:800;font-size:10px;text-transform:uppercase">TOTAL</td><td style="font-weight:700;font-family:monospace">$'+ts.spent.toFixed(2)+'</td><td style="font-weight:800;font-size:13px">'+fmtNum(ts.leads)+'</td><td>'+chipHtml(tc)+'</td>'+(isAll?'<td style="font-weight:700">'+fmtNum(TOT.imp)+'</td><td style="font-weight:700">'+fmtNum(TOT.reach)+'</td><td></td>':'')+' </tr>';tbody.innerHTML=rows;}
 function updateRanking(){var isAll=currentDay==="all";var idx=parseInt(currentDay);var camps=isAll?ALL_CAMPS:(DAY_CAMPS[idx]||[]);var lbl=isAll?"Todo el período":DAILY_LABELS[idx];document.getElementById("rank-sub").textContent=lbl+" · menor es mejor";document.getElementById("rank-title").textContent="Orden · "+lbl;var sorted=camps.slice().sort(function(a,b){return a.cpr-b.cpr;});if(!sorted.length){document.getElementById("rank-list").innerHTML='<span style="color:#9CA3AF;font-size:12px">Sin datos</span>';return;}buildRankingChart(sorted);var rl=document.getElementById("rank-list");rl.innerHTML="";sorted.forEach(function(c,i){rl.innerHTML+='<div class="rcard'+(i===0?" first":"")+'"><div class="rnum '+(i===0?"r1":i===1?"r2":"")+'">'+( i+1)+'</div><div class="rinfo"><div class="rname">'+c.name+'</div><div class="rmeta">'+fmtNum(c.leads)+' leads · $'+c.spent.toFixed(0)+' USD</div></div><div class="rcpr"><div class="val" style="color:'+cprTextColor(i)+'">$'+c.cpr.toFixed(3)+'</div><div class="lbl">por lead</div></div></div>';});}
 function render(){updateKpis();updateMiniCards();buildCprChart();buildLeadsChart();updateCampsTable();updateRanking();buildFunnelSteps();}
 
